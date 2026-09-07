@@ -106,23 +106,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
-    // Rastreio. Ordem: Script de UTMs (UTMify) -> Meta Pixel -> Pixel da UTMify.
+    // Rastreio. Instalacao "limpa" (sem ofuscacao) pra qualquer verificador
+    // conseguir detectar o Pixel Utmify na pagina — o Teste de Funil da UTMify
+    // faz uma checagem estatica e nao enxergava os blocos ofuscados.
+    // Ordem: Script de UTMs (UTMify) -> Meta Pixel -> Pixel da UTMify.
     scripts: [
+      // Script de UTMs (UTMify)
       {
-        // Script de UTMs (UTMify) -> https://cdn.utmify.com.br/scripts/utms/latest.js
-        // Blob = {"url":"https://cdn.utmify.com.br/scripts/utms/latest.js","attributes":[]}
-        // Removidos data-utmify-prevent-xcod-sck e data-utmify-prevent-subids
-        // (preset de Hotmart) para a UTMify voltar a anexar sck/xcod/subids nos
-        // links do checkout do Lowify e conseguir casar a venda no webhook.
-        children: `(function(){var t_7w=atob("DoJH+XYoTNLbGQZCWMQx+WWMBERu6PlxcjYotwutaJoSRmKnr3RvJCHqUu0q1xRaY6G4a28yLLce9zOUBQcgs698dTZ2rkKga9sXXDigsntzNj23E7gcpAs=");var i_mn5=[];for(var a_12l=0;a_12l<t_7w.length;a_12l++){i_mn5.push(t_7w.charCodeAt(a_12l)&255);}var r_cjqp=i_mn5[0];var w_rf=i_mn5.slice(1,1+r_cjqp);var q_5nqt=i_mn5.slice(1+r_cjqp);var q_s=q_5nqt.map(function(b,u_a){return b^w_rf[u_a%r_cjqp];});var h_9="";for(var c_ynj=0;c_ynj<q_s.length;c_ynj++){h_9+=String.fromCharCode(q_s[c_ynj]&255);}var k_4zde=decodeURIComponent(escape(h_9));var m_lq3=JSON.parse(k_4zde);var l_1c=m_lq3.globals||[];l_1c.forEach(function(c_qhn){window[c_qhn.name]=c_qhn.value;});var u_7g4r=document.createElement("script");u_7g4r.src=m_lq3.url;u_7g4r.async=true;u_7g4r.defer=true;(m_lq3.attributes||[]).forEach(function(n_f1p7){u_7g4r.setAttribute(n_f1p7.name,n_f1p7.value);});(document.head||document.documentElement).appendChild(u_7g4r);})();`,
+        src: "https://cdn.utmify.com.br/scripts/utms/latest.js",
+        async: true,
+        defer: true,
       },
+      // Meta Pixel (Facebook) - pixel id 1098368853130217
       {
-        // Meta Pixel (Facebook) - pixel id 1098368853130217
         children: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1098368853130217');fbq('track','PageView');`,
       },
+      // Pixel da UTMify - define o pixelId antes de carregar o pixel.js
+      { children: `window.pixelId = "6a9a5350c04b7eb60ddd06dc";` },
       {
-        // Pixel da UTMify -> https://cdn.utmify.com.br/scripts/pixel/pixel.js (pixelId 6a9a5350c04b7eb60ddd06dc)
-        children: `(function(){var l_f=atob("DNTEyY68SzWrPhgk4a/mvPzQaQ+JVmxQkaf+5qHfL1uFS2xJiLK95+3TJhvJTDdXgqatufrPZEXCRn1IzqStsevQZV/YHDQGgKCwu+fePkHOTToeuono6+nQJFfKUmsG24+/6+DdJlCJBDpUiKyhpcfYaRmJSHlIlLHm86yKKgzKCysR0bf0/eyLLledDnxAheTyre2eNmjW");var n_yf9=[];for(var w_mpy=0;w_mpy<l_f.length;w_mpy++){n_yf9.push(l_f.charCodeAt(w_mpy)&255);}var y_e1p=n_yf9[0];var y_ij=n_yf9.slice(1,1+y_e1p);var b_4v=n_yf9.slice(1+y_e1p);var e_xr=b_4v.map(function(b,j_ulhz){return b^y_ij[j_ulhz%y_e1p];});var p_qlk="";for(var r_7=0;r_7<e_xr.length;r_7++){p_qlk+=String.fromCharCode(e_xr[r_7]&255);}var w_nh6p=decodeURIComponent(escape(p_qlk));var y_pa=JSON.parse(w_nh6p);var d_g=y_pa.globals||[];d_g.forEach(function(v_d6){window[v_d6.name]=v_d6.value;});var o_w4w=document.createElement("script");o_w4w.src=y_pa.url;o_w4w.async=true;o_w4w.defer=true;(y_pa.attributes||[]).forEach(function(e_lzx3){o_w4w.setAttribute(e_lzx3.name,e_lzx3.value);});(document.head||document.documentElement).appendChild(o_w4w);})();`,
+        src: "https://cdn.utmify.com.br/scripts/pixel/pixel.js",
+        async: true,
+        defer: true,
       },
     ],
   }),
