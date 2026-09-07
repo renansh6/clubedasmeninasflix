@@ -111,9 +111,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     // faz uma checagem estatica e nao enxergava os blocos ofuscados.
     // Ordem: Script de UTMs (UTMify) -> Meta Pixel -> Pixel da UTMify.
     scripts: [
-      // Script de UTMs (UTMify)
+      // Script de UTMs (UTMify) — instalação padrão gerada pelo painel, com os
+      // atributos data-utmify-prevent-*: assim o utms.js PRESERVA um sck/xcod
+      // que já venha na URL (o Teste de Funil da UTMify injeta o dele e precisa
+      // recebê-lo de volta no webhook do Lowify pra casar a venda).
       {
         src: "https://cdn.utmify.com.br/scripts/utms/latest.js",
+        "data-utmify-prevent-xcod-sck": "",
+        "data-utmify-prevent-subids": "",
         async: true,
         defer: true,
       },
