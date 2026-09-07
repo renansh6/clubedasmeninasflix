@@ -82,7 +82,8 @@ export const Route = createFileRoute("/")({
 const CHECKOUT = "https://pay.lowify.com.br/checkout?product_id=trhsz2";
 const CHECKOUT_VIP = "https://pay.lowify.com.br/checkout?product_id=aZvoUl";
 
-// Mantém os parâmetros da URL da LP (ex.: UTMs) ao ir para o checkout.
+// Fallback: mantém os parâmetros da URL da LP (ex.: UTMs) no link do checkout
+// caso o script de UTMs da UTMify ainda não tenha reescrito o href.
 function withParams(url: string) {
   try {
     const search = window.location.search.replace(/^\?/, "");
@@ -102,13 +103,19 @@ function withParams(url: string) {
 // webviews do Instagram/Facebook e ao voltar do checkout pelo botão "voltar"
 // (página restaurada do bfcache). Aqui prevenimos o default e navegamos na mão.
 //
-// O clique ainda propaga até o listener da UTMify (pixel.js), que detecta o
-// link de checkout e dispara o InitiateCheckout com um fetch assíncrono para
-// tracking.utmify.com.br. Damos ~400ms antes de trocar a URL pra esse request
-// (e o beacon do Meta Pixel) sair antes da navegação.
+// IMPORTANTE: navegamos para o href ATUAL do link, não para a URL fixa. O
+// utms/latest.js da UTMify reescreve o href com sck/xcod/subid/utm_* — é isso
+// que o Lowify devolve no webhook para a UTMify casar a venda. Reconstruir a
+// URL a partir da constante descartava esses parâmetros. withParams() só entra
+// como fallback se o href ainda não estiver decorado.
+//
+// O clique ainda propaga até o listener da UTMify (pixel.js), que dispara o
+// InitiateCheckout com um fetch assíncrono. Damos ~400ms antes de trocar a URL
+// pra esse request (e o beacon do Meta Pixel) saírem antes da navegação.
 function openCheckout(e: React.MouseEvent<HTMLAnchorElement>, url: string) {
   e.preventDefault();
-  const target = withParams(url);
+  const liveHref = e.currentTarget?.href ?? "";
+  const target = liveHref.includes("pay.lowify.com.br") ? liveHref : withParams(url);
   window.setTimeout(() => window.location.assign(target), 400);
 }
 
