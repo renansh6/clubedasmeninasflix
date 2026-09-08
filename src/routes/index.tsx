@@ -165,6 +165,12 @@ const COLLECTIONS = [
       "Ursinhos Carinhosos",
       "Minnie Toons",
       "Galinha Pintadinha Mini",
+    ],
+  },
+  {
+    icon: "🍿",
+    title: "Filmes e aventuras",
+    items: [
       "Patrulha Canina",
       "Meu Amigo Totoro",
       "Ursinho Pooh",
