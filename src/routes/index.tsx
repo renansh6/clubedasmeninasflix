@@ -901,26 +901,49 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="w-full bg-background px-5 pt-8 pb-5 text-center sm:px-8 sm:pt-10 sm:pb-7">
+      <footer className="w-full bg-background px-5 pt-10 pb-7 text-center sm:px-8">
         <div className="mx-auto max-w-[720px]">
-          <p className="mx-auto max-w-[460px] text-[13px] leading-5 text-muted-foreground">
-            O maior acervo de desenhos para meninas do Brasil. Conteúdo dublado, organizado e com acesso vitalício.
-          </p>
+          <div className="leading-none">
+            <div className="text-[12px] font-extrabold uppercase tracking-[0.22em] text-ink">
+              Clube das Meninas
+            </div>
+            <div className="-mt-0.5 text-[34px] font-extrabold uppercase tracking-tight text-primary">
+              Flix
+            </div>
+          </div>
 
-          <nav className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[13px] font-bold text-ink">
-            <span>Política de Privacidade</span>
-            <span className="text-border" aria-hidden="true">|</span>
-            <span>Termos de Uso</span>
-            <span className="text-border" aria-hidden="true">|</span>
-            <span>Contato</span>
+          <a
+            href="https://www.instagram.com/oclubedasprincesas_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 text-[14px] font-semibold text-primary"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-[18px] w-[18px]"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            Nosso Instagram
+          </a>
+
+          <nav className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[12px] text-muted-foreground">
+            <span>Termos de uso</span>
+            <span aria-hidden="true">·</span>
+            <span>Privacidade</span>
           </nav>
 
-          <div className="mx-auto mt-5 w-full max-w-[520px] border-t border-border" />
-
-          <div className="mt-5 space-y-1 text-[12px] leading-5 text-muted-foreground">
-            <p>© {new Date().getFullYear()}. Todos os direitos reservados.</p>
-            <p>Todo o conteúdo é disponibilizado para uso pessoal dos assinantes.</p>
-          </div>
+          <p className="mt-4 text-[12px] leading-5 text-muted-foreground">
+            © {new Date().getFullYear()}. Todos os direitos reservados.
+          </p>
         </div>
       </footer>
 
