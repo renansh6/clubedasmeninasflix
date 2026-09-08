@@ -100,6 +100,16 @@ export const CARTOONS: Cartoon[] = [
   { id: "princesasapo", name: "A Princesa e o Sapo", grad: "linear-gradient(160deg,#BBF7D0,#15803D)", image: princesasapo.url, w: 198, h: 352 },
   { id: "alice", name: "Alice no País das Maravilhas", grad: "linear-gradient(160deg,#BFDBFE,#2563EB)", image: alice.url, w: 198, h: 352 },
   { id: "juniper", name: "Juniper Lee", short: "A Vida e as Aventuras de Juniper Lee", grad: "linear-gradient(160deg,#F5D0FE,#7C3AED)", image: "/juniper-lee.webp", w: 235, h: 352 },
+  { id: "patrulha", name: "Patrulha Canina", grad: "linear-gradient(160deg,#93C5FD,#DC2626)", image: "/toons/patrulha-canina.jpg", w: 263, h: 352 },
+  { id: "totoro", name: "Meu Amigo Totoro", grad: "linear-gradient(160deg,#BBF7D0,#15803D)", image: "/toons/meu-amigo-totoro.jpg", w: 198, h: 352 },
+  { id: "pooh", name: "Ursinho Pooh", grad: "linear-gradient(160deg,#FDE68A,#D97706)", image: "/toons/ursinho-pooh.jpg", w: 198, h: 352 },
+  { id: "george", name: "George, o Curioso: Aventuras no Mar", grad: "linear-gradient(160deg,#FEF08A,#CA8A04)", image: "/toons/george-o-curioso-aventuras-no-mar.jpg", w: 282, h: 352 },
+  { id: "toystory2", name: "Toy Story 2", grad: "linear-gradient(160deg,#BAE6FD,#2563EB)", image: "/toons/toy-story-2.jpg", w: 240, h: 352 },
+  { id: "toystory3", name: "Toy Story 3", grad: "linear-gradient(160deg,#FCA5A5,#DC2626)", image: "/toons/toy-story-3.jpg", w: 235, h: 352 },
+  { id: "toystory4", name: "Toy Story 4", grad: "linear-gradient(160deg,#DDD6FE,#7C3AED)", image: "/toons/toy-story-4.jpg", w: 234, h: 352 },
+  { id: "toystoryesq", name: "Toy Story: Esquecidos pelo Tempo", grad: "linear-gradient(160deg,#FDBA74,#C2410C)", image: "/toons/toy-story-esquecidos-pelo-tempo.jpg", w: 252, h: 352 },
+  { id: "toystoryrex", name: "Toy Story: Festassauro Rex", grad: "linear-gradient(160deg,#BBF7D0,#16A34A)", image: "/toons/toy-story-festassauro-rex.jpg", w: 249, h: 352 },
+  { id: "toystorymundo", name: "Toy Story: Um Mundo de Aventuras", grad: "linear-gradient(160deg,#BAE6FD,#0284C7)", image: "/toons/toy-story-um-mundo-de-aventuras.jpg", w: 237, h: 352 },
 ];
 
 export const TOP_CARTOONS = CARTOONS.filter((c) => c.top);
