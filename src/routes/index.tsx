@@ -672,7 +672,7 @@ function Index() {
           Arraste para o lado e veja tudo o que entra no seu acesso 💕
         </p>
         <div className="mt-5">
-          <PosterCarousel items={CARTOONS} speed={30} hint deferUntilVisible initialBatch={6} />
+          <PosterCarousel items={CARTOONS} speed={48} hint deferUntilVisible initialBatch={6} />
         </div>
       </section>
 
