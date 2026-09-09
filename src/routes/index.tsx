@@ -1011,7 +1011,7 @@ function Index() {
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">🎨</span>
                   <span>
-                    <b className="text-primary">1000 Kits de Colorir</b> — todos desenhos para meninas
+                    <b className="text-primary">2000 Kits de Colorir</b> — todos desenhos para meninas
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
