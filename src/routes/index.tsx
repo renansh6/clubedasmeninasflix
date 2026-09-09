@@ -984,7 +984,7 @@ function Index() {
             </span>
 
             <h3 className="mt-3 text-[18px] font-extrabold leading-[1.28] text-ink short:text-[16px]">
-              Espera! Por só <span className="text-primary">R$8 a mais</span>, você leva também a
+              Espera! Por só <span className="text-primary">R$5 a mais</span>, você leva também a
               série <span className="text-primary">Life in the Dreamhouse</span> 👇
             </h3>
 
@@ -1037,7 +1037,7 @@ function Index() {
             >
               SIM! QUERO A SÉRIE + O KIT 🏠
               <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
-                Levar tudo por R$17,90 →
+                Levar tudo por R$14,90 →
               </span>
             </a>
             <a
