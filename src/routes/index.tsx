@@ -913,7 +913,7 @@ function Index() {
           </div>
 
           <a
-            href="https://www.instagram.com/oclubedasprincesas_/"
+            href="https://www.instagram.com/clubedasmeninasflix/"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 text-[14px] font-semibold text-primary"
