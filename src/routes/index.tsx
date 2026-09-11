@@ -525,7 +525,7 @@ function OfferCard({
                 <span className="uppercase">Combo</span> MeninasFlix
               </div>
               <div className="mt-1 text-[40px] font-[800] leading-none text-primary">
-                <small className="align-super text-lg font-bold">R$</small>24,90
+                <small className="align-super text-lg font-bold">R$</small>19,90
               </div>
               <div className="text-[13px] font-[400] text-muted-foreground">Pagamento único</div>
             </div>
@@ -579,7 +579,7 @@ function OfferCard({
               className="cta-btn plan-cta mt-4 flex min-h-[52px] w-full flex-col items-center justify-center"
             >
               <span className="text-[15px] font-[700]">QUERO O COMBO</span>
-              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$24,90 →</span>
+              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$19,90 →</span>
             </a>
           </div>
         </div>
