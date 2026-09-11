@@ -1008,21 +1008,25 @@ function Index() {
             </div>
           </div>
 
+          <h3 className="mt-6 text-[20px] font-extrabold text-primary">
+            7 Dias de garantia incondicional
+          </h3>
+          <p className="mx-auto mt-2 max-w-[380px] text-[13px] leading-5 text-muted-foreground">
+            Caso decida que não valeu a pena, você pode pedir um reembolso em até 7 dias depois da
+            compra e receber 100% do seu investimento de volta, sem perguntas ou burocracias.
+          </p>
+
+          <hr className="my-6 border-0 border-t border-dashed border-border" />
+
+          <p className="text-[14px] font-medium text-ink">Tem alguma dúvida? A gente te ajuda ❤️</p>
+
           <a
             href="https://wa.me/5519994613334"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 text-[14px] font-semibold text-primary"
+            className="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-primary bg-[#fdeef6] px-5 py-2.5 text-[14px] font-bold text-primary"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-[18px] w-[18px]"
-              aria-hidden="true"
-            >
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.41a8.2 8.2 0 0 1 2.42 5.83c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.27 4.4c-.15 0-.4.06-.61.29-.21.23-.8.79-.8 1.92 0 1.13.82 2.22.94 2.38.11.15 1.6 2.55 3.95 3.47 1.97.78 2.37.62 2.79.58.42-.04 1.37-.56 1.56-1.1.19-.54.19-1 .13-1.1-.06-.09-.21-.15-.44-.27-.23-.11-1.37-.68-1.58-.75-.21-.08-.37-.11-.52.11-.15.23-.6.75-.73.9-.13.15-.27.17-.5.06-.23-.12-.98-.36-1.86-1.15-.69-.61-1.15-1.37-1.29-1.6-.13-.23-.01-.35.1-.47.11-.11.23-.27.35-.41.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.41-.06-.11-.51-1.25-.71-1.71-.18-.44-.37-.38-.51-.39-.13 0-.28-.01-.43-.01z" />
-            </svg>
-            Nosso Suporte
+            <span aria-hidden="true">💬</span> Falar com a gente
           </a>
 
           <nav className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[12px] text-muted-foreground">
