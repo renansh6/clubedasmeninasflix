@@ -103,17 +103,15 @@
   }
 }
 
-/* Pulsação dos botões de checkout dos planos (Básico/Combo): escala sutil
-   nos primeiros 30% de um ciclo de 3s, com halo via filter (não mexe em
-   box-shadow, pra não brigar com a sombra própria de cada botão). */
+/* Pulsação contínua dos botões de checkout dos planos (Básico/Combo):
+   ciclo de 2.5s sem pausa, com halo via filter (não mexe em box-shadow,
+   pra não brigar com a sombra própria de cada botão). Não para no hover. */
 @utility plan-cta {
   transform-origin: center;
-  animation: plan-cta-pulse 3s ease-in-out infinite;
+  animation: plan-cta-pulse 2.5s ease-in-out infinite;
   will-change: transform, filter;
   &:hover,
   &:focus-visible {
-    animation: none;
-    transform: scale(1);
     box-shadow: 0 0 0 3px oklch(0.6 0.245 348 / 0.25);
   }
   @media (prefers-reduced-motion: reduce) {
@@ -123,12 +121,11 @@
 
 @keyframes plan-cta-pulse {
   0%,
-  30%,
   100% {
     transform: scale(1);
     filter: drop-shadow(0 0 0 oklch(0.6 0.245 348 / 0));
   }
-  15% {
+  50% {
     transform: scale(1.025);
     filter: drop-shadow(0 0 10px oklch(0.6 0.245 348 / 0.45));
   }
