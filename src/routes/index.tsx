@@ -584,13 +584,13 @@ function OfferCard({
           </div>
         </div>
       ) : (
-        <>
-          <div className="mt-5 text-[14px] font-bold text-muted-foreground">
+        <div className="font-plan">
+          <div className="mt-5 text-[14px] font-[700] text-muted-foreground">
             ➡ De: <s className="text-primary/70">R$59,90</s>
           </div>
-          <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
-          <div className="text-6xl font-extrabold leading-none text-primary">
-            <small className="align-super text-2xl font-bold">R$</small>6,90
+          <div className="text-[13px] font-[400] text-muted-foreground">Por apenas</div>
+          <div className="text-[40px] font-[800] leading-none text-primary">
+            <small className="align-super text-lg font-bold">R$</small>6,90
           </div>
 
           <button
@@ -599,11 +599,11 @@ function OfferCard({
             onPointerEnter={preloadFamily}
             onFocus={preloadFamily}
             onTouchStart={preloadFamily}
-            className="cta-btn mt-6"
+            className="cta-btn plan-cta mt-6"
           >
-            {cta}
+            <span className="text-[15px] font-[700]">{cta}</span>
           </button>
-        </>
+        </div>
       )}
       <div className="mt-3 text-[12px] font-semibold leading-relaxed text-muted-foreground">
         {note}
