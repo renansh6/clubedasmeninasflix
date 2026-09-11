@@ -540,12 +540,16 @@ function OfferCard({
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">❤️</span>
                 <span>
-                  Acervo completo <span className="font-[600]">DoramaFlix</span>
+                  +1000 <span className="font-[600]">DoramasFlix</span>
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">👑</span>
-                <span className="font-[600]">Barbie Life in the Dreamhouse</span>
+                <span>
+                  <span className="font-[600]">Barbie Life in the Dreamhouse</span> (série completa e
+                  dublada: Barbie, Ken, Skipper e Raquelle em episódios curtinhos, perfeitos pra
+                  maratonar)
+                </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">🎨</span>
