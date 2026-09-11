@@ -999,13 +999,13 @@ function Index() {
       {/* FOOTER */}
       <footer className="w-full bg-background px-5 pt-10 pb-7 text-center sm:px-8">
         <div className="mx-auto max-w-[720px]">
-          <div className="leading-none">
-            <div className="text-[12px] font-extrabold uppercase tracking-[0.22em] text-ink">
+          <div className="flex items-baseline justify-center leading-none">
+            <span className="text-[12px] font-extrabold uppercase tracking-[0.22em] text-ink">
               Clube das Meninas
-            </div>
-            <div className="-mt-0.5 text-[34px] font-extrabold uppercase tracking-tight text-primary">
+            </span>
+            <span className="text-[34px] font-extrabold uppercase tracking-tight text-primary">
               Flix
-            </div>
+            </span>
           </div>
 
           <h3 className="mt-6 text-[20px] font-extrabold text-primary">
