@@ -488,6 +488,22 @@ const FAQ = [
       </>
     ),
   },
+  {
+    q: "Mudei de ideia. E agora?",
+    a: (
+      <>
+        <p>
+          Sem problema nenhum, de verdade. Você tem{" "}
+          <b className="text-ink">7 dias de garantia incondicional</b>: se sentir que não valeu a
+          pena, devolvemos <b className="text-ink">100% do valor</b>, sem perguntas e sem burocracia.
+        </p>
+        <p className="mt-3">
+          Mas antes, me dá uma chance? 💗 Muita coisa que parece um problemão aqui é só um
+          detalhezinho que a gente resolve em minutos. Me chama que eu cuido disso com você.
+        </p>
+      </>
+    ),
+  },
 ];
 
 function Divider() {
