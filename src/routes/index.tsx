@@ -614,7 +614,10 @@ function OfferCard({
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">👑</span>
-                <span className="font-[600]">Série completa e dublada</span>
+                <span>
+                  <span className="font-[600]">Barbie Life in the Dreamhouse</span>, Série completa
+                  e dublada
+                </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">🎨</span>
