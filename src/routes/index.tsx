@@ -562,7 +562,7 @@ function OfferCard({
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">🎬</span>
                 <span>
-                  Acervo completo de desenhos <span className="font-[600]">MeninasFlix</span>
+                  Acervo completo dos desenhos <span className="font-[600]">MeninasFlix</span>
                 </span>
               </div>
               <div className="flex items-start gap-2">
@@ -602,7 +602,7 @@ function OfferCard({
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">🎬</span>
                 <span>
-                  Acervo completo de desenhos <span className="font-[600]">MeninasFlix</span>
+                  Acervo completo dos desenhos <span className="font-[600]">MeninasFlix</span>
                 </span>
               </div>
               <div className="flex items-start gap-2">
