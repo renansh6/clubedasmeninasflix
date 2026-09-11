@@ -471,15 +471,6 @@ const FAQ = [
               às vezes é um número antigo ou com um dígito trocado.
             </span>
           </li>
-          <li className="flex items-start gap-2.5">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
-              4
-            </span>
-            <span>
-              Busque por <b className="text-ink">Barbie</b> na caixa de entrada. Se aparecer, é ele
-              ❤️
-            </span>
-          </li>
         </ol>
         <div className="mt-3 rounded-xl border border-[#f0c98a] bg-[#fff6e6] p-3 text-[13px] leading-5">
           <b className="text-[#a8681a]">Trocou um número ou uma letra sem querer?</b> Acontece muito,
