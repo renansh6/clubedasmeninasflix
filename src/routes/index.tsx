@@ -558,11 +558,17 @@ function OfferCard({
               <div className="text-[13px] font-[400] text-muted-foreground">Pagamento único</div>
             </div>
 
-            <div className="mt-4 flex items-start gap-2 rounded-xl bg-[#fdeef6] p-3">
-              <span className="mt-0.5 shrink-0 text-[16px]">🎬</span>
-              <span className="text-[14px] font-[500] text-ink">
-                Acervo completo de desenhos <span className="font-[600]">MeninasFlix</span>
-              </span>
+            <div className="mt-4 flex flex-col gap-2 rounded-xl bg-[#fdeef6] p-3 text-[14px] font-[500] text-ink">
+              <div className="flex items-start gap-2">
+                <span className="mt-0.5 shrink-0 text-[16px]">🎬</span>
+                <span>
+                  Acervo completo de desenhos <span className="font-[600]">MeninasFlix</span>
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-0.5 shrink-0 text-[16px]">🎁</span>
+                <span className="font-[600]">Bônus SURPRESA</span>
+              </div>
             </div>
 
             <a
@@ -629,6 +635,10 @@ function OfferCard({
                 <span>
                   <span className="font-[600]">Papéis de parede</span> da Barbie para o celular
                 </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-0.5 shrink-0 text-[16px]">🎁</span>
+                <span className="font-[600]">Bônus SURPRESA</span>
               </div>
             </div>
 
