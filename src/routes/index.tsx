@@ -518,7 +518,7 @@ function OfferCard({
 
           <div className="relative flex flex-col rounded-2xl border-2 border-primary bg-card p-5 pt-7">
             <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-[10.5px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-card)]">
-              Mais completo
+              Favorito delas
             </span>
             <div className="text-center">
               <div className="text-[18px] font-[700] text-primary">
