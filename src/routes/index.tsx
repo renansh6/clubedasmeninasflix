@@ -483,7 +483,7 @@ function OfferCard({
 
 
 
-      {tag === "Oferta Exclusiva" ? (
+      {tag === "Oferta Exclusiva" || tag === "Última chamada" ? (
         <div className="font-plan mt-5 grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
           <div className="flex flex-col rounded-2xl border-2 border-border bg-card p-5">
             <div className="text-center">
