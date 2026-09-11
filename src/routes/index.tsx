@@ -433,6 +433,61 @@ const FAQ = [
     q: "O conteúdo está em português?",
     a: "Sim! Tudo é 100% em português — desenhos, além da plataforma inteira traduzida.",
   },
+  {
+    q: "Não recebi meu acesso",
+    a: (
+      <>
+        <p>
+          Calma, ele não se perdeu ❤️ O acesso é enviado <b className="text-ink">na hora da compra</b>,
+          para o e-mail <b className="text-ink">e</b> para o número de celular que você digitou no
+          momento do pagamento. Vamos conferir juntas:
+        </p>
+        <ol className="mt-3 flex flex-col gap-3">
+          <li className="flex items-start gap-2.5">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
+              1
+            </span>
+            <span>
+              Abra o <b className="text-ink">e-mail</b> que você usou na compra — não o seu
+              principal, e sim o que foi digitado ali.
+            </span>
+          </li>
+          <li className="flex items-start gap-2.5">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
+              2
+            </span>
+            <span>
+              Olhe nas abas <b className="text-ink">Promoções</b>, <b className="text-ink">Social</b>{" "}
+              e <b className="text-ink">Spam / Lixo eletrônico</b>. É muito comum ele cair numa
+              dessas.
+            </span>
+          </li>
+          <li className="flex items-start gap-2.5">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
+              3
+            </span>
+            <span>
+              Confira o <b className="text-ink">WhatsApp do número</b> que você preencheu na compra —
+              às vezes é um número antigo ou com um dígito trocado.
+            </span>
+          </li>
+          <li className="flex items-start gap-2.5">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
+              4
+            </span>
+            <span>
+              Busque por <b className="text-ink">Barbie</b> na caixa de entrada. Se aparecer, é ele
+              ❤️
+            </span>
+          </li>
+        </ol>
+        <div className="mt-3 rounded-xl border border-[#f0c98a] bg-[#fff6e6] p-3 text-[13px] leading-5">
+          <b className="text-[#a8681a]">Trocou um número ou uma letra sem querer?</b> Acontece muito,
+          e tem conserto — a gente reenvia pra você em minutos. É só chamar aqui embaixo.
+        </div>
+      </>
+    ),
+  },
 ];
 
 function Divider() {
@@ -990,7 +1045,7 @@ function Index() {
                 {f.q}
                 <span className="text-primary transition-transform group-open:rotate-180">⌄</span>
               </summary>
-              <p className="mt-2 text-[13px] leading-6 text-muted-foreground">{f.a}</p>
+              <div className="mt-2 text-[13px] leading-6 text-muted-foreground">{f.a}</div>
             </details>
           ))}
         </div>
