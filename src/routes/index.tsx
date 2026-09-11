@@ -522,7 +522,7 @@ function OfferCard({
             </span>
             <div className="text-center">
               <div className="text-[18px] font-[700] text-primary">
-                <span className="uppercase">Combo</span> MeninasFlix
+                MeninasFlix <span className="uppercase">Combo</span>
               </div>
               <div className="mt-1 text-[40px] font-[800] leading-none text-primary">
                 <small className="align-super text-lg font-bold">R$</small>19,90
