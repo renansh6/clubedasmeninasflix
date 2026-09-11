@@ -607,7 +607,10 @@ function OfferCard({
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">❤️</span>
-                <span className="font-[600]">Acesso ao DoramasFlix</span>
+                <span>
+                  Acesso ao <span className="font-[600]">DoramasFlix</span> com 1.000 títulos para
+                  você maratonar
+                </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-0.5 shrink-0 text-[16px]">👑</span>
