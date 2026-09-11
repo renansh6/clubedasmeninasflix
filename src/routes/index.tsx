@@ -440,6 +440,15 @@ function Divider() {
 }
 
 
+const BASIC_FEATURES = [
+  "Conteúdo em Full HD 1080p",
+  "Tudo dublado em português",
+  "Encontre facilmente cada desenho e episódio",
+  "Acesso imediato enviado direto pelo WhatsApp",
+  "Acesso 100% vitalício, pagamento único",
+  "Assista pelo celular, tablet, computador ou Smart TV",
+];
+
 function OfferCard({
   tag,
   scarcity,
@@ -451,9 +460,9 @@ function OfferCard({
   tag: string;
   scarcity?: string;
   title: string;
-  cta: string;
+  cta?: string;
   note: React.ReactNode;
-  onCta: (e: React.MouseEvent) => void;
+  onCta?: (e: React.MouseEvent) => void;
 }) {
   return (
     <section className="card-soft px-5 py-7 text-center sm:px-7">
@@ -483,24 +492,115 @@ function OfferCard({
 
 
 
-      <div className="mt-5 text-[14px] font-bold text-muted-foreground">
-        ➡ De: <s className="text-primary/70">R$59,90</s>
-      </div>
-      <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
-      <div className="text-6xl font-extrabold leading-none text-primary">
-        <small className="align-super text-2xl font-bold">R$</small>6,90
-      </div>
+      {tag === "Oferta Exclusiva" ? (
+        <div className="mt-5 grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
+          <div className="flex flex-col rounded-2xl border-2 border-border bg-card p-4">
+            <div className="text-center">
+              <div className="text-[14px] font-extrabold uppercase text-ink">MeninasFlix Básico</div>
+              <div className="mt-1 text-4xl font-extrabold leading-none text-primary">
+                <small className="align-super text-lg font-bold">R$</small>6,90
+              </div>
+              <div className="text-[11px] font-semibold text-muted-foreground">Pagamento único</div>
+            </div>
 
-      <button
-        type="button"
-        onClick={onCta}
-        onPointerEnter={preloadFamily}
-        onFocus={preloadFamily}
-        onTouchStart={preloadFamily}
-        className="cta-btn mt-6"
-      >
-        {cta}
-      </button>
+            <div className="mt-4 flex items-center gap-2 rounded-xl bg-[#fdeef6] p-3">
+              <span className="text-[16px]">🎬</span>
+              <span className="text-[12.5px] font-bold text-ink">Acervo completo de desenhos</span>
+            </div>
+
+            <ul className="mt-4 flex flex-1 flex-col gap-2 text-[12px] leading-5 text-ink">
+              {BASIC_FEATURES.map((f) => (
+                <li key={f} className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0 text-primary">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={CHECKOUT}
+              onClick={(e) => openCheckout(e, CHECKOUT)}
+              onPointerEnter={preloadFamily}
+              onFocus={preloadFamily}
+              onTouchStart={preloadFamily}
+              className="mt-4 flex min-h-[52px] w-full flex-col items-center justify-center rounded-full border-2 border-primary px-3 text-center font-extrabold leading-tight text-primary"
+            >
+              QUERO O BÁSICO
+              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$6,90 →</span>
+            </a>
+          </div>
+
+          <div className="relative flex flex-col rounded-2xl border-2 border-primary bg-card p-4 pt-6">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-[10.5px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-card)]">
+              Mais completo
+            </span>
+            <div className="text-center">
+              <div className="text-[14px] font-extrabold uppercase text-primary">Combo MeninasFlix</div>
+              <div className="mt-1 text-4xl font-extrabold leading-none text-primary">
+                <small className="align-super text-lg font-bold">R$</small>9,90
+              </div>
+              <div className="text-[11px] font-semibold text-muted-foreground">Pagamento único</div>
+            </div>
+
+            <div className="mt-4 flex flex-col gap-2 rounded-xl bg-[#fdeef6] p-3">
+              <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
+                <span className="shrink-0 text-[16px]">🎬</span>Acervo completo de desenhos
+              </div>
+              <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
+                <span className="shrink-0 text-[16px]">🏠</span>Barbie Life in the Dreamhouse
+              </div>
+              <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
+                <span className="shrink-0 text-[16px]">🎨</span>2.000 Kits de Colorir
+              </div>
+              <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
+                <span className="shrink-0 text-[16px]">🧩</span>Atividades e papéis de parede
+              </div>
+            </div>
+
+            <ul className="mt-4 flex flex-1 flex-col gap-2 text-[12px] leading-5 text-ink">
+              {BASIC_FEATURES.map((f) => (
+                <li key={f} className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0 text-primary">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={CHECKOUT_VIP}
+              onClick={(e) => openCheckout(e, CHECKOUT_VIP)}
+              onPointerEnter={preloadFamily}
+              onFocus={preloadFamily}
+              onTouchStart={preloadFamily}
+              className="cta-btn mt-4 flex min-h-[52px] w-full flex-col items-center justify-center"
+            >
+              QUERO O COMBO
+              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$9,90 →</span>
+            </a>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="mt-5 text-[14px] font-bold text-muted-foreground">
+            ➡ De: <s className="text-primary/70">R$59,90</s>
+          </div>
+          <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
+          <div className="text-6xl font-extrabold leading-none text-primary">
+            <small className="align-super text-2xl font-bold">R$</small>6,90
+          </div>
+
+          <button
+            type="button"
+            onClick={onCta}
+            onPointerEnter={preloadFamily}
+            onFocus={preloadFamily}
+            onTouchStart={preloadFamily}
+            className="cta-btn mt-6"
+          >
+            {cta}
+          </button>
+        </>
+      )}
       <div className="mt-3 text-[12px] font-semibold leading-relaxed text-muted-foreground">
         {note}
       </div>
@@ -646,8 +746,6 @@ function Index() {
         tag="Oferta Exclusiva"
         scarcity="🔥 Valor promocional de lançamento — por tempo limitado"
         title="Os desenhos mais amados, num lugar só"
-        cta="QUERO MEU ACESSO POR R$6,90 💖"
-        onCta={handleCta}
         note={
           <>
             🔒 Compra 100% segura · PIX na hora
