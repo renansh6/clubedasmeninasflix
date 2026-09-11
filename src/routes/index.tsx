@@ -487,7 +487,7 @@ function OfferCard({
         <div className="font-plan mt-5 grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
           <div className="flex flex-col rounded-2xl border-2 border-border bg-card p-5">
             <div className="text-center">
-              <div className="text-[18px] font-[700] text-ink">
+              <div className="text-[18px] font-[700] text-primary">
                 MeninasFlix <span className="uppercase">Básico</span>
               </div>
               <div className="mt-1 text-[40px] font-[800] leading-none text-primary">
