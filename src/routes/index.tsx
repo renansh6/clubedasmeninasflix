@@ -440,29 +440,6 @@ function Divider() {
 }
 
 
-const BASIC_FEATURES = [
-  "Conteúdo em Full HD 1080p",
-  "Tudo dublado em português",
-  "Interface simples e organizada",
-  "Encontre facilmente cada desenho e episódio",
-  "Acesso imediato enviado diretamente pelo WhatsApp",
-  "Acesso 100% vitalício",
-  "Pagamento único, sem mensalidades",
-  "Assista pelo celular, tablet, computador ou Smart TV",
-];
-
-const COMBO_FEATURES = [
-  "Conteúdo em Full HD 1080p + 4K",
-  "Tudo dublado em português",
-  "Interface simples e organizada",
-  "Encontre facilmente cada desenho e episódio",
-  "Acesso imediato enviado diretamente pelo WhatsApp",
-  "Acesso 100% vitalício",
-  "Pagamento único, sem mensalidades",
-  "Atualizações constantes do acervo sem custo adicional",
-  "Assista pelo celular, tablet, computador ou Smart TV",
-];
-
 function OfferCard({
   tag,
   scarcity,
@@ -526,17 +503,6 @@ function OfferCard({
               </span>
             </div>
 
-            <ul
-              className="mt-4 flex flex-1 flex-col gap-2.5 text-[14px] font-[400] leading-[21px] text-[#26232C]"
-            >
-              {BASIC_FEATURES.map((f) => (
-                <li key={f} className="flex items-start gap-2">
-                  <span className="mt-0.5 shrink-0 text-primary">✓</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-
             <a
               href={CHECKOUT}
               onClick={(e) => openCheckout(e, CHECKOUT)}
@@ -595,17 +561,6 @@ function OfferCard({
                 </span>
               </div>
             </div>
-
-            <ul
-              className="mt-4 flex flex-1 flex-col gap-2.5 text-[14px] font-[400] leading-[21px] text-[#26232C]"
-            >
-              {COMBO_FEATURES.map((f) => (
-                <li key={f} className="flex items-start gap-2">
-                  <span className="mt-0.5 shrink-0 text-primary">✓</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
 
             <a
               href={CHECKOUT_VIP}
