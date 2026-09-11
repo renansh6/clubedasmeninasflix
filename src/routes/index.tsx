@@ -509,7 +509,7 @@ function OfferCard({
               onPointerEnter={preloadFamily}
               onFocus={preloadFamily}
               onTouchStart={preloadFamily}
-              className="plan-cta mt-4 flex min-h-[52px] w-full flex-col items-center justify-center rounded-full border-2 border-primary px-3 text-center leading-tight text-primary"
+              className="cta-btn plan-cta mt-4 flex min-h-[52px] w-full flex-col items-center justify-center"
             >
               <span className="text-[15px] font-[700]">QUERO O BÁSICO</span>
               <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$9,90 →</span>
