@@ -913,33 +913,10 @@ function Index() {
           </div>
 
           <a
-            href="https://www.instagram.com/clubedasmeninasflix/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 text-[14px] font-semibold text-primary"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-[18px] w-[18px]"
-              aria-hidden="true"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-            </svg>
-            Nosso Instagram
-          </a>
-
-          <a
             href="https://wa.me/5519994613334"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 flex items-center justify-center gap-2 text-[14px] font-semibold text-primary"
+            className="mt-4 flex items-center justify-center gap-2 text-[14px] font-semibold text-primary"
           >
             <svg
               viewBox="0 0 24 24"
