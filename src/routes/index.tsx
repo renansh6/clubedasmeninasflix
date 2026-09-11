@@ -750,13 +750,7 @@ function Index() {
         tag="Oferta Exclusiva"
         scarcity="🔥 Valor promocional de lançamento — por tempo limitado"
         title="Os desenhos mais amados, num lugar só"
-        note={
-          <>
-            🔒 Compra 100% segura · PIX na hora
-            <br />
-            💗 7 dias de garantia — risco zero
-          </>
-        }
+        note={<>🔒 Compra 100% segura · 💗 7 dias de garantia incondicional</>}
       />
       <p className="mt-4 text-center text-[12.5px] font-medium text-muted-foreground">
         Esse é apenas um valor simbólico para nos ajudar a manter tudo no ar e com qualidade para
