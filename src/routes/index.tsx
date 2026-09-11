@@ -443,9 +443,23 @@ function Divider() {
 const BASIC_FEATURES = [
   "Conteúdo em Full HD 1080p",
   "Tudo dublado em português",
+  "Interface simples e organizada",
   "Encontre facilmente cada desenho e episódio",
-  "Acesso imediato enviado direto pelo WhatsApp",
-  "Acesso 100% vitalício, pagamento único",
+  "Acesso imediato enviado diretamente pelo WhatsApp",
+  "Acesso 100% vitalício",
+  "Pagamento único, sem mensalidades",
+  "Assista pelo celular, tablet, computador ou Smart TV",
+];
+
+const COMBO_FEATURES = [
+  "Conteúdo em Full HD 1080p + 4K",
+  "Tudo dublado em português",
+  "Interface simples e organizada",
+  "Encontre facilmente cada desenho e episódio",
+  "Acesso imediato enviado diretamente pelo WhatsApp",
+  "Acesso 100% vitalício",
+  "Pagamento único, sem mensalidades",
+  "Atualizações constantes do acervo sem custo adicional",
   "Assista pelo celular, tablet, computador ou Smart TV",
 ];
 
@@ -496,16 +510,20 @@ function OfferCard({
         <div className="mt-5 grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
           <div className="flex flex-col rounded-2xl border-2 border-border bg-card p-4">
             <div className="text-center">
-              <div className="text-[14px] font-extrabold uppercase text-ink">MeninasFlix Básico</div>
+              <div className="text-[14px] font-extrabold text-ink">
+                MeninasFlix <span className="uppercase">Básico</span>
+              </div>
               <div className="mt-1 text-4xl font-extrabold leading-none text-primary">
-                <small className="align-super text-lg font-bold">R$</small>6,90
+                <small className="align-super text-lg font-bold">R$</small>9,90
               </div>
               <div className="text-[11px] font-semibold text-muted-foreground">Pagamento único</div>
             </div>
 
             <div className="mt-4 flex items-center gap-2 rounded-xl bg-[#fdeef6] p-3">
-              <span className="text-[16px]">🎬</span>
-              <span className="text-[12.5px] font-bold text-ink">Acervo completo de desenhos</span>
+              <span className="shrink-0 text-[16px]">🎬</span>
+              <span className="text-[12.5px] font-bold text-ink">
+                Acervo completo de desenhos MeninasFlix
+              </span>
             </div>
 
             <ul className="mt-4 flex flex-1 flex-col gap-2 text-[12px] leading-5 text-ink">
@@ -526,7 +544,7 @@ function OfferCard({
               className="mt-4 flex min-h-[52px] w-full flex-col items-center justify-center rounded-full border-2 border-primary px-3 text-center font-extrabold leading-tight text-primary"
             >
               QUERO O BÁSICO
-              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$6,90 →</span>
+              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$9,90 →</span>
             </a>
           </div>
 
@@ -535,30 +553,40 @@ function OfferCard({
               Mais completo
             </span>
             <div className="text-center">
-              <div className="text-[14px] font-extrabold uppercase text-primary">Combo MeninasFlix</div>
+              <div className="text-[14px] font-extrabold text-primary">
+                <span className="uppercase">Combo</span> MeninasFlix
+              </div>
               <div className="mt-1 text-4xl font-extrabold leading-none text-primary">
-                <small className="align-super text-lg font-bold">R$</small>9,90
+                <small className="align-super text-lg font-bold">R$</small>24,90
               </div>
               <div className="text-[11px] font-semibold text-muted-foreground">Pagamento único</div>
             </div>
 
             <div className="mt-4 flex flex-col gap-2 rounded-xl bg-[#fdeef6] p-3">
               <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
-                <span className="shrink-0 text-[16px]">🎬</span>Acervo completo de desenhos
+                <span className="shrink-0 text-[16px]">🎬</span>Acervo completo de desenhos MeninasFlix
               </div>
               <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
-                <span className="shrink-0 text-[16px]">🏠</span>Barbie Life in the Dreamhouse
+                <span className="shrink-0 text-[16px]">❤️</span>Acervo completo DoramaFlix
               </div>
               <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
-                <span className="shrink-0 text-[16px]">🎨</span>2.000 Kits de Colorir
+                <span className="shrink-0 text-[16px]">👑</span>Barbie Life in the Dreamhouse
               </div>
               <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
-                <span className="shrink-0 text-[16px]">🧩</span>Atividades e papéis de parede
+                <span className="shrink-0 text-[16px]">🎨</span>2.000 kits de colorir
+              </div>
+              <div className="flex items-start gap-2 text-[12.5px] font-bold text-ink">
+                <span className="mt-0.5 shrink-0 text-[16px]">🧩</span>Atividades — caça palavras, 7
+                erros e ligue os pontos
+              </div>
+              <div className="flex items-center gap-2 text-[12.5px] font-bold text-ink">
+                <span className="shrink-0 text-[16px]">📱</span>Papéis de parede da Barbie para o
+                celular
               </div>
             </div>
 
             <ul className="mt-4 flex flex-1 flex-col gap-2 text-[12px] leading-5 text-ink">
-              {BASIC_FEATURES.map((f) => (
+              {COMBO_FEATURES.map((f) => (
                 <li key={f} className="flex items-start gap-2">
                   <span className="mt-0.5 shrink-0 text-primary">✓</span>
                   {f}
@@ -575,7 +603,7 @@ function OfferCard({
               className="cta-btn mt-4 flex min-h-[52px] w-full flex-col items-center justify-center"
             >
               QUERO O COMBO
-              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$9,90 →</span>
+              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$24,90 →</span>
             </a>
           </div>
         </div>
