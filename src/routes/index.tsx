@@ -79,8 +79,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CHECKOUT = "https://checkout.lowify.com.br/checkout.php?product_id=trhsz2";
-const CHECKOUT_VIP = "https://checkout.lowify.com.br/checkout.php?product_id=aZvoUl";
+const CHECKOUT = "https://pay.lowify.com.br/checkout?product_id=trhsz2";
+const CHECKOUT_VIP = "https://pay.lowify.com.br/checkout?product_id=aZvoUl";
 
 // Fallback: mantém os parâmetros da URL da LP (ex.: UTMs) no link do checkout
 // caso o script de UTMs da UTMify ainda não tenha reescrito o href.
@@ -115,7 +115,7 @@ function withParams(url: string) {
 function openCheckout(e: React.MouseEvent<HTMLAnchorElement>, url: string) {
   e.preventDefault();
   const liveHref = e.currentTarget?.href ?? "";
-  const target = liveHref.includes("checkout.lowify.com.br") ? liveHref : withParams(url);
+  const target = liveHref.includes("lowify.com.br") ? liveHref : withParams(url);
   window.setTimeout(() => window.location.assign(target), 400);
 }
 
