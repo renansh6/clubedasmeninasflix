@@ -110,6 +110,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     // conseguir detectar o Pixel Utmify na pagina — o Teste de Funil da UTMify
     // faz uma checagem estatica e nao enxergava os blocos ofuscados.
     // Ordem: Script de UTMs (UTMify) -> Meta Pixel -> Pixel da UTMify.
+    //
+    // IMPORTANTE: o TanStack Router renderiza todo <script src> do array ANTES
+    // dos <script> inline, independente da ordem declarada aqui — e como o
+    // pixel.js é `async`, ele pode rodar assim que baixar, antes do parser
+    // chegar no inline que define window.pixelId. Isso fazia o pixel da UTMify
+    // inicializar com pixelId undefined. Por isso o pixel.js é injetado via JS
+    // (mesmo padrão de auto-injeção do snippet do Meta Pixel abaixo), garantindo
+    // que window.pixelId já existe antes do script ser criado/baixado.
     scripts: [
       // Script de UTMs (UTMify) — instalação padrão gerada pelo painel, com os
       // atributos data-utmify-prevent-*: assim o utms.js PRESERVA um sck/xcod
@@ -126,12 +134,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         children: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1098368853130217');fbq('track','PageView');`,
       },
-      // Pixel da UTMify - define o pixelId antes de carregar o pixel.js
-      { children: `window.pixelId = "6a9a5350c04b7eb60ddd06dc";` },
+      // Pixel da UTMify - define window.pixelId e só então cria/injeta o
+      // pixel.js, no mesmo <script>, pra eliminar a corrida de carregamento.
       {
-        src: "https://cdn.utmify.com.br/scripts/pixel/pixel.js",
-        async: true,
-        defer: true,
+        children: `window.pixelId = "6a9a5350c04b7eb60ddd06dc";var s=document.createElement('script');s.src='https://cdn.utmify.com.br/scripts/pixel/pixel.js';s.async=true;document.head.appendChild(s);`,
       },
     ],
   }),
