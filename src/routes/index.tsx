@@ -1097,15 +1097,8 @@ function Index() {
             >
               SIM! QUERO A SÉRIE + O KIT 🏠
               <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
-                Levar tudo por R$9,90 →
+                Levar tudo por R$14,90 →
               </span>
-            </a>
-            <a
-              href={CHECKOUT}
-              onClick={(e) => openCheckout(e, CHECKOUT)}
-              className="mt-2 flex w-full items-center justify-center px-2 text-center text-[12px] font-semibold text-muted-foreground underline"
-            >
-              Não, quero só assistir por R$6,90.
             </a>
           </div>
         </div>
