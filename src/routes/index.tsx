@@ -513,9 +513,9 @@ function OfferCard({
   tag: string;
   scarcity?: string;
   title: string;
-  cta?: string;
+  cta: string;
   note: React.ReactNode;
-  onCta?: (e: React.MouseEvent) => void;
+  onCta: (e: React.MouseEvent) => void;
 }) {
   return (
     <section className="card-soft px-5 py-7 text-center sm:px-7">
@@ -545,138 +545,24 @@ function OfferCard({
 
 
 
-      {tag === "Oferta Exclusiva" || tag === "Última chamada" ? (
-        <div className="font-plan mt-5 grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
-          <div className="flex flex-col rounded-2xl border-2 border-border bg-card p-5">
-            <div className="text-center">
-              <div className="text-[18px] font-[700] text-primary">
-                MeninasFlix <span className="uppercase">Básico</span>
-              </div>
-              <div className="mt-1 text-[40px] font-[800] leading-none text-primary">
-                <small className="align-super text-lg font-bold">R$</small>9,90
-              </div>
-              <div className="text-[13px] font-[400] text-muted-foreground">Pagamento único</div>
-            </div>
+      <div className="mt-5 text-[14px] font-bold text-muted-foreground">
+        ➡ De: <s className="text-primary/70">R$59,90</s>
+      </div>
+      <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
+      <div className="text-6xl font-extrabold leading-none text-primary">
+        <small className="align-super text-2xl font-bold">R$</small>6,90
+      </div>
 
-            <div className="mt-4 flex flex-col gap-2 rounded-xl bg-[#fdeef6] p-3 text-[14px] font-[500] text-ink">
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">🎬</span>
-                <span>
-                  Acervo completo dos desenhos <span className="font-[600]">MeninasFlix</span>
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">🎁</span>
-                <span className="font-[600]">Bônus SURPRESA</span>
-              </div>
-            </div>
-
-            <a
-              href={CHECKOUT}
-              onClick={(e) => openCheckout(e, CHECKOUT)}
-              onPointerEnter={preloadFamily}
-              onFocus={preloadFamily}
-              onTouchStart={preloadFamily}
-              className="cta-btn plan-cta mt-4 flex min-h-[52px] w-full flex-col items-center justify-center"
-            >
-              <span className="text-[15px] font-[700]">QUERO O BÁSICO</span>
-              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$9,90 →</span>
-            </a>
-          </div>
-
-          <div className="relative flex flex-col rounded-2xl border-2 border-primary bg-card p-5 pt-7">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-[10.5px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-card)]">
-              Favorito delas
-            </span>
-            <div className="text-center">
-              <div className="text-[18px] font-[700] text-primary">
-                MeninasFlix <span className="uppercase">Combo</span>
-              </div>
-              <div className="mt-1 text-[40px] font-[800] leading-none text-primary">
-                <small className="align-super text-lg font-bold">R$</small>19,90
-              </div>
-              <div className="text-[13px] font-[400] text-muted-foreground">Pagamento único</div>
-            </div>
-
-            <div className="mt-4 flex flex-col gap-2 rounded-xl bg-[#fdeef6] p-3 text-[14px] font-[500] text-ink">
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">🎬</span>
-                <span>
-                  Acervo completo dos desenhos <span className="font-[600]">MeninasFlix</span>
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">❤️</span>
-                <span>
-                  Acesso ao <span className="font-[600]">DoramasFlix</span> com 1.000 títulos para
-                  você maratonar
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">👑</span>
-                <span>
-                  <span className="font-[600]">Barbie Life in the Dreamhouse</span>, Série completa
-                  e dublada
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">🎨</span>
-                <span className="font-[600]">2.000 kits de colorir</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">🧩</span>
-                <span>
-                  <span className="font-[600]">Atividades</span> — caça palavras, 7 erros e ligue os
-                  pontos
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">📱</span>
-                <span>
-                  <span className="font-[600]">Papéis de parede</span> da Barbie para o celular
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 shrink-0 text-[16px]">🎁</span>
-                <span className="font-[600]">Bônus SURPRESA</span>
-              </div>
-            </div>
-
-            <a
-              href={CHECKOUT_VIP}
-              onClick={(e) => openCheckout(e, CHECKOUT_VIP)}
-              onPointerEnter={preloadFamily}
-              onFocus={preloadFamily}
-              onTouchStart={preloadFamily}
-              className="cta-btn plan-cta mt-4 flex min-h-[52px] w-full flex-col items-center justify-center"
-            >
-              <span className="text-[15px] font-[700]">QUERO O COMBO</span>
-              <span className="mt-0.5 text-[12px] font-semibold normal-case opacity-90">R$19,90 →</span>
-            </a>
-          </div>
-        </div>
-      ) : (
-        <div className="font-plan">
-          <div className="mt-5 text-[14px] font-[700] text-muted-foreground">
-            ➡ De: <s className="text-primary/70">R$59,90</s>
-          </div>
-          <div className="text-[13px] font-[400] text-muted-foreground">Por apenas</div>
-          <div className="text-[40px] font-[800] leading-none text-primary">
-            <small className="align-super text-lg font-bold">R$</small>6,90
-          </div>
-
-          <button
-            type="button"
-            onClick={onCta}
-            onPointerEnter={preloadFamily}
-            onFocus={preloadFamily}
-            onTouchStart={preloadFamily}
-            className="cta-btn plan-cta mt-6"
-          >
-            <span className="text-[15px] font-[700]">{cta}</span>
-          </button>
-        </div>
-      )}
+      <button
+        type="button"
+        onClick={onCta}
+        onPointerEnter={preloadFamily}
+        onFocus={preloadFamily}
+        onTouchStart={preloadFamily}
+        className="cta-btn mt-6"
+      >
+        {cta}
+      </button>
       <div className="mt-3 text-[12px] font-semibold leading-relaxed text-muted-foreground">
         {note}
       </div>
@@ -822,7 +708,15 @@ function Index() {
         tag="Oferta Exclusiva"
         scarcity="🔥 Valor promocional de lançamento — por tempo limitado"
         title="Os desenhos mais amados, num lugar só"
-        note={<>🔒 Compra 100% segura · 💗 7 dias de garantia incondicional</>}
+        cta="QUERO MEU ACESSO POR R$6,90 💖"
+        onCta={handleCta}
+        note={
+          <>
+            🔒 Compra 100% segura · PIX na hora
+            <br />
+            💗 7 dias de garantia — risco zero
+          </>
+        }
       />
       <p className="mt-4 text-center text-[12.5px] font-medium text-muted-foreground">
         Esse é apenas um valor simbólico para nos ajudar a manter tudo no ar e com qualidade para
