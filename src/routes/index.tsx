@@ -1040,29 +1040,26 @@ function Index() {
             </div>
 
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eab543] px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#5c3c00]">
-              🏠 Série exclusiva incluída
+              🎁 Bônus grátis na sua compra
             </span>
 
             <h3 className="mt-3 text-[18px] font-extrabold leading-[1.28] text-ink short:text-[16px]">
-              Espera! Por só <span className="text-primary">R$3 a mais</span>, você leva também a
-              série <span className="text-primary">Life in the Dreamhouse</span> 👇
+              Espera! A série <span className="text-primary">Barbie: Life in the Dreamhouse</span> +
+              estes bônus vão de presente para você! 👇
             </h3>
 
             <p className="mt-2 text-[12.5px] leading-[1.4] text-muted-foreground">
-              Você já vai levar <b className="text-ink">todos os desenhos</b>. Falta a série que as
-              meninas mais pedem — e ela não entra na oferta de R$ 6,90.
+              Finalize sua compra e receba tudo abaixo junto com seu acesso aos desenhos, sem pagar
+              nada a mais.
             </p>
 
             <div className="relative mt-4 rounded-2xl border-2 border-[#f3b3d5] bg-[#fdeef6] p-4 pt-5 text-left">
-              <span className="absolute -top-2.5 right-3 rounded-full bg-primary px-2.5 py-1 text-[9.5px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-card)]">
-                Incluído
-              </span>
               <div className="text-[14.5px] font-extrabold leading-snug text-primary">
-                🏠 Barbie Life in the Dreamhouse
+                🏠 Barbie Life in the Dreamhouse — GRÁTIS
               </div>
               <p className="mt-1.5 text-[12.5px] leading-5 text-muted-foreground">
-                A série completa e dublada: Barbie, Ken, Skipper e Raquelle em episódios curtinhos,
-                perfeitos pra maratonar.
+                A série completa e dublada, com Barbie, Ken, Skipper e Raquelle em episódios
+                curtinhos para maratonar.
               </p>
             </div>
 
@@ -1071,20 +1068,25 @@ function Index() {
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">🎨</span>
                   <span>
-                    <b className="text-primary">2000 Kits de Colorir</b> — todos desenhos para meninas
+                    <b className="text-primary">2.000 kits para colorir</b>
+                    <br />
+                    Desenhos para meninas soltarem a criatividade.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">🧩</span>
                   <span>
-                    <b className="text-primary">Atividades</b> — caça-palavras, 7 erros e ligue os
-                    pontos
+                    <b className="text-primary">Atividades</b>
+                    <br />
+                    Caça-palavras, 7 erros e ligue os pontos.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">📱</span>
                   <span>
-                    <b className="text-primary">Papéis de parede</b> da Barbie pro celular
+                    <b className="text-primary">Papéis de parede da Barbie</b>
+                    <br />
+                    Para personalizar o celular.
                   </span>
                 </li>
               </ul>
@@ -1095,9 +1097,9 @@ function Index() {
               onClick={(e) => openCheckout(e, CHECKOUT_VIP)}
               className="cta-btn mt-2.5 min-h-[50px] w-full whitespace-normal text-[14px]"
             >
-              SIM! QUERO A SÉRIE + O KIT 🏠
+              QUERO MEU ACESSO + BÔNUS GRÁTIS 🎁
               <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
-                Levar tudo por R$14,90 →
+                Finalizar minha compra →
               </span>
             </a>
           </div>
