@@ -1040,7 +1040,7 @@ function Index() {
             </div>
 
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eab543] px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#5c3c00]">
-              🎁 Bônus grátis na sua compra
+              🎁 Brindes na sua compra
             </span>
 
             <h3 className="mt-3 text-[18px] font-extrabold leading-[1.28] text-ink short:text-[16px]">
@@ -1097,7 +1097,7 @@ function Index() {
               onClick={(e) => openCheckout(e, CHECKOUT_VIP)}
               className="cta-btn mt-2.5 min-h-[50px] w-full whitespace-normal text-[14px]"
             >
-              QUERO MEU ACESSO + BÔNUS GRÁTIS 🎁
+              QUERO MEU ACESSO POR R$14,90 + BRINDE 🎁
               <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
                 Finalizar minha compra →
               </span>
