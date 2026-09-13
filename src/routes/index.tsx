@@ -550,7 +550,7 @@ function OfferCard({
       </div>
       <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
       <div className="text-6xl font-extrabold leading-none text-primary">
-        <small className="align-super text-2xl font-bold">R$</small>6,90
+        <small className="align-super text-2xl font-bold">R$</small>14,90
       </div>
 
       <button
@@ -708,7 +708,7 @@ function Index() {
         tag="Oferta Exclusiva"
         scarcity="🔥 Valor promocional de lançamento — por tempo limitado"
         title="Os desenhos mais amados, num lugar só"
-        cta="QUERO MEU ACESSO POR R$6,90 💖"
+        cta="QUERO MEU ACESSO POR R$14,90 💖"
         onCta={handleCta}
         note={
           <>
@@ -932,7 +932,7 @@ function Index() {
       <OfferCard
         tag="Última chamada"
         title="Reviva a magia dos seus desenhos favoritos ainda hoje"
-        cta="GARANTIR MEU ACESSO POR R$6,90 🎀"
+        cta="GARANTIR MEU ACESSO POR R$14,90 🎀"
         onCta={handleCta}
         note={<>🔒 Compra 100% segura · 💗 7 dias de garantia incondicional</>}
       />
