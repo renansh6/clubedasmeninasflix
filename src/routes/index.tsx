@@ -489,7 +489,7 @@ function OfferCard({
           <div className="mt-3">
             <PosterCarousel items={TOP_CARTOONS} size="sm" speed={30} hint eager={4} initialBatch={8} />
           </div>
-          <div className="mt-3 flex justify-center">
+          <div className="mt-1 flex justify-center">
             <span className="rounded-full bg-primary px-3 py-1.5 text-[11.5px] font-bold text-primary-foreground">
               Diversos desenhos no acervo
             </span>
@@ -497,9 +497,7 @@ function OfferCard({
         </div>
       )}
 
-
-
-      <div className="mt-5 text-[14px] font-bold text-muted-foreground">
+      <div className="mt-3 text-[14px] font-bold text-muted-foreground">
         ➡ De: <s className="text-primary/70">R$59,90</s>
       </div>
       <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
@@ -513,7 +511,7 @@ function OfferCard({
         onPointerEnter={preloadFamily}
         onFocus={preloadFamily}
         onTouchStart={preloadFamily}
-        className="cta-btn mt-6"
+        className="cta-btn mt-4"
       >
         {cta}
       </button>
@@ -667,7 +665,7 @@ function Index() {
           </>
         }
       />
-      <p className="mt-4 text-center text-[12.5px] font-medium text-muted-foreground">
+      <p className="mt-2 text-center text-[12.5px] font-medium text-muted-foreground">
         Esse é apenas um valor simbólico para nos ajudar a manter tudo no ar e com qualidade para
         você! 💖
       </p>
