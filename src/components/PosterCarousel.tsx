@@ -238,7 +238,7 @@ export function PosterCarousel({
                         e.currentTarget.style.opacity = "1";
                       }}
                       style={{ opacity: 0, transition: "opacity .25s ease" }}
-                      className="h-full w-full object-contain"
+                      className="h-full w-full object-cover"
                     />
                   ) : (
                     <figcaption className="flex h-full w-full items-end p-2 text-left text-[11px] font-extrabold leading-tight text-white drop-shadow">
