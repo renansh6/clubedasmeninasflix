@@ -752,26 +752,26 @@ function Index() {
 
       <div className="mt-5 space-y-2">
         {REVIEWS.map((r) => (
-          <div key={r.initials} className="card-soft p-3">
-            <div className="flex items-center gap-2.5">
-              <img
-                src={r.photo}
-                alt={r.name}
-                loading="lazy"
-                decoding="async"
-                width={36}
-                height={36}
-                className="h-9 w-9 shrink-0 rounded-full border-2 border-primary/40 object-cover object-center"
-                style={{ background: r.grad, aspectRatio: "1 / 1" }}
-              />
+          <div key={r.initials} className="card-soft flex gap-2.5 p-3">
+            <img
+              src={r.photo}
+              alt={r.name}
+              loading="lazy"
+              decoding="async"
+              width={36}
+              height={36}
+              className="h-9 w-9 shrink-0 rounded-full border-2 border-primary/40 object-cover object-center"
+              style={{ background: r.grad, aspectRatio: "1 / 1" }}
+            />
 
-              <div>
-                <div className="text-[13px] font-bold text-ink">{r.name}</div>
-                <div className="text-[11px] text-muted-foreground">· Via Instagram</div>
+            <div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-[13px] font-bold text-ink">{r.name}</span>
+                <span className="text-[11px] text-muted-foreground">· Via Instagram</span>
               </div>
+              <div className="text-[12px] tracking-widest text-[#f5b301]">★★★★★</div>
+              <p className="mt-0.5 text-[13px] leading-[1.35] text-ink">{r.txt}</p>
             </div>
-            <div className="mt-1 text-[12px] tracking-widest text-[#f5b301]">★★★★★</div>
-            <p className="mt-1 text-[13px] leading-[1.35] text-ink">{r.txt}</p>
           </div>
         ))}
       </div>
