@@ -451,8 +451,8 @@ const FAQ = [
   },
 ];
 
-function Divider() {
-  return <hr className="my-8 border-0 border-t border-dashed border-border" />;
+function Divider({ className = "my-8" }: { className?: string }) {
+  return <hr className={`${className} border-0 border-t border-dashed border-border`} />;
 }
 
 
@@ -739,7 +739,7 @@ function Index() {
         </section>
       </div>
 
-      <Divider />
+      <Divider className="my-5" />
 
       {/* DEPOIMENTOS */}
       <h2 className="text-center text-[20px] font-extrabold text-ink">
@@ -818,7 +818,7 @@ function Index() {
 
       </section>
 
-      <Divider />
+      <Divider className="my-5" />
 
       {/* APARELHOS */}
       <div className="text-center">
