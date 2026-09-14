@@ -750,28 +750,28 @@ function Index() {
         acervo 💕
       </p>
 
-      <div className="mt-5 space-y-3">
+      <div className="mt-5 space-y-2">
         {REVIEWS.map((r) => (
-          <div key={r.initials} className="card-soft p-4">
-            <div className="flex items-center gap-3">
+          <div key={r.initials} className="card-soft p-3">
+            <div className="flex items-center gap-2.5">
               <img
                 src={r.photo}
                 alt={r.name}
                 loading="lazy"
                 decoding="async"
-                width={56}
-                height={56}
-                className="h-14 w-14 shrink-0 rounded-full border-2 border-primary/40 object-cover object-center"
+                width={36}
+                height={36}
+                className="h-9 w-9 shrink-0 rounded-full border-2 border-primary/40 object-cover object-center"
                 style={{ background: r.grad, aspectRatio: "1 / 1" }}
               />
 
               <div>
-                <div className="text-[14px] font-bold text-ink">{r.name}</div>
-                <div className="text-[11.5px] text-muted-foreground">· Via Instagram</div>
+                <div className="text-[13px] font-bold text-ink">{r.name}</div>
+                <div className="text-[11px] text-muted-foreground">· Via Instagram</div>
               </div>
             </div>
-            <div className="mt-2 text-[14px] tracking-widest text-[#f5b301]">★★★★★</div>
-            <p className="mt-1.5 text-[14px] leading-6 text-ink">{r.txt}</p>
+            <div className="mt-1 text-[12px] tracking-widest text-[#f5b301]">★★★★★</div>
+            <p className="mt-1 text-[13px] leading-[1.35] text-ink">{r.txt}</p>
           </div>
         ))}
       </div>
