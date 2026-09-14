@@ -998,7 +998,7 @@ function Index() {
             </h3>
 
             <p className="mt-2 text-[12.5px] leading-[1.4] text-muted-foreground">
-              Você já vai levar <b className="text-ink">todos os filmes</b>. Falta a série que as
+              Você já vai levar <b className="text-ink">todos os desenhos</b>. Falta a série que as
               meninas mais pedem — e ela não entra na oferta de R$6,90.
             </p>
 
@@ -1017,12 +1017,6 @@ function Index() {
 
             <div className="mt-3 rounded-2xl border border-[#f7d9e8] bg-card p-4 text-left">
               <ul className="flex flex-col gap-3">
-                <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
-                  <span className="shrink-0 text-[15px]">🎨</span>
-                  <span>
-                    <b className="text-primary">3 Kits de Colorir</b> — Barbie, Winx e Moranguinho
-                  </span>
-                </li>
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">🧩</span>
                   <span>
