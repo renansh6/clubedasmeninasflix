@@ -969,7 +969,7 @@ function Index() {
         >
           <div
             ref={modalRef}
-            className="card-soft relative my-2 h-auto w-[calc(100vw-16px)] max-w-[400px] overflow-y-auto overscroll-contain p-3 text-center short:p-2.5"
+            className="card-soft relative my-2 h-auto w-[calc(100vw-16px)] max-w-[400px] overflow-y-auto overscroll-contain border-2 border-primary p-3 text-center short:p-2.5"
             style={{
               maxHeight: "calc(100vh - 16px)",
               maxBlockSize: "calc(100dvh - 16px)",
