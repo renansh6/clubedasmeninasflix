@@ -963,7 +963,7 @@ function Index() {
           ref={overlayRef}
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto overscroll-contain bg-black/60 p-2"
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overscroll-contain bg-black/60 p-2"
           style={{ WebkitOverflowScrolling: "touch" }}
           onClick={() => setModalOpen(false)}
         >
