@@ -1061,7 +1061,7 @@ function Index() {
             <a
               href={CHECKOUT}
               onClick={(e) => openCheckout(e, CHECKOUT)}
-              className="mt-3 flex w-full items-center justify-center px-2 text-center text-[12px] font-semibold text-muted-foreground underline"
+              className="mt-4 flex w-full items-center justify-center px-2 text-center text-[13.5px] font-semibold text-muted-foreground underline"
             >
               Não, quero só assistir por R$6,90.
             </a>
