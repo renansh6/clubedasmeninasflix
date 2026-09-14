@@ -329,52 +329,6 @@ const BUYERS = [
   "Bruna de Porto Alegre",
 ];
 
-// URL do vídeo da VSL (mp4/hls direto). Deixe vazio para exibir o placeholder.
-
-function VslVideo() {
-  const ref = useRef<HTMLVideoElement>(null);
-  const [started, setStarted] = useState(false);
-
-  const start = () => {
-    const video = ref.current;
-    if (!video) return;
-    // Inicia com som a partir do gesto do usuário (permitido pelos navegadores).
-    video.muted = false;
-    video.volume = 1;
-    setStarted(true);
-    const p = video.play();
-    if (p) p.catch(() => {});
-  };
-
-  return (
-    <div className="relative aspect-[9/16] w-full overflow-hidden bg-black">
-      <video
-        ref={ref}
-        src="/vsl.mp4"
-        playsInline
-        preload="none"
-        controls={started}
-        poster="/vsl-cover.webp"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      {!started && (
-        <button
-          type="button"
-          onClick={start}
-          aria-label="Dar play no vídeo"
-          className="absolute inset-0 z-10 h-full w-full cursor-pointer border-0 bg-transparent p-0"
-        >
-          <img
-            src="/vsl-cover.webp"
-            alt="Dê o play e conheça todos os desenhos"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </button>
-      )}
-    </div>
-  );
-}
-
 function useLiveViewerCount(base = 441) {
   const [count, setCount] = useState(base);
 
@@ -695,11 +649,6 @@ function Index() {
         </h1>
 
         <LiveViewerBadge />
-
-        {/* VSL */}
-        <div className="mx-auto mt-8 w-full max-w-[340px] overflow-hidden rounded-[20px] border-4 border-[#ff2bbd] bg-black shadow-[0_0_22px_rgba(255,43,189,0.55),0_0_8px_rgba(255,43,189,0.35)]">
-          <VslVideo />
-        </div>
       </section>
 
       <Divider />
