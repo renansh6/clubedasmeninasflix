@@ -79,7 +79,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CHECKOUT = "https://pay.lowify.com.br/checkout?product_id=trhsz2";
+const CHECKOUT = "https://checkout.lowify.com.br/checkout.php?product_id=trhsz2";
 const CHECKOUT_VIP = "https://checkout.lowify.com.br/checkout.php?product_id=aZvoUl";
 
 // Fallback: mantém os parâmetros da URL da LP (ex.: UTMs) no link do checkout
@@ -504,7 +504,7 @@ function OfferCard({
       </div>
       <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
       <div className="text-6xl font-extrabold leading-none text-primary">
-        <small className="align-super text-2xl font-bold">R$</small>14,90
+        <small className="align-super text-2xl font-bold">R$</small>6,90
       </div>
 
       <button
@@ -657,7 +657,7 @@ function Index() {
         tag="Oferta Exclusiva"
         scarcity="🔥 Valor promocional de lançamento — por tempo limitado"
         title="Os desenhos mais amados, num lugar só"
-        cta="QUERO MEU ACESSO POR R$14,90 💖"
+        cta="QUERO MEU ACESSO POR R$6,90 💖"
         onCta={handleCta}
         note={
           <>
@@ -881,7 +881,7 @@ function Index() {
       <OfferCard
         tag="Última chamada"
         title="Reviva a magia dos seus desenhos favoritos ainda hoje"
-        cta="GARANTIR MEU ACESSO POR R$14,90 🎀"
+        cta="GARANTIR MEU ACESSO POR R$6,90 🎀"
         onCta={handleCta}
         note={<>🔒 Compra 100% segura · 💗 7 dias de garantia incondicional</>}
       />
@@ -989,26 +989,29 @@ function Index() {
             </div>
 
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eab543] px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#5c3c00]">
-              🎁 Brindes na sua compra
+              🏠 Série exclusiva incluída
             </span>
 
             <h3 className="mt-3 text-[18px] font-extrabold leading-[1.28] text-ink short:text-[16px]">
-              Espera! A série <span className="text-primary">Barbie: Life in the Dreamhouse</span> +
-              estes bônus vão de presente para você! 👇
+              Espera! Por só <span className="text-primary">R$3 a mais</span>, você leva também a
+              série <span className="text-primary">Life in the Dreamhouse</span> 👇
             </h3>
 
             <p className="mt-2 text-[12.5px] leading-[1.4] text-muted-foreground">
-              Finalize sua compra e receba tudo abaixo junto com seu acesso aos desenhos, sem pagar
-              nada a mais.
+              Você já vai levar <b className="text-ink">todos os filmes</b>. Falta a série que as
+              meninas mais pedem — e ela não entra na oferta de R$6,90.
             </p>
 
             <div className="relative mt-4 rounded-2xl border-2 border-[#f3b3d5] bg-[#fdeef6] p-4 pt-5 text-left">
+              <span className="absolute -top-2.5 right-3 rounded-full bg-primary px-2.5 py-1 text-[9.5px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-card)]">
+                Incluído
+              </span>
               <div className="text-[14.5px] font-extrabold leading-snug text-primary">
-                🏠 Barbie Life in the Dreamhouse — GRÁTIS
+                🏠 Barbie Life in the Dreamhouse
               </div>
               <p className="mt-1.5 text-[12.5px] leading-5 text-muted-foreground">
-                A série completa e dublada, com Barbie, Ken, Skipper e Raquelle em episódios
-                curtinhos para maratonar.
+                A série completa e dublada: Barbie, Ken, Skipper e Raquelle em episódios curtinhos,
+                perfeitos pra maratonar.
               </p>
             </div>
 
@@ -1017,25 +1020,26 @@ function Index() {
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">🎨</span>
                   <span>
-                    <b className="text-primary">2.000 kits para colorir</b>
-                    <br />
-                    Desenhos para meninas soltarem a criatividade.
+                    <b className="text-primary">3 Kits de Colorir</b> — Barbie, Winx e Moranguinho
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">🧩</span>
                   <span>
-                    <b className="text-primary">Atividades</b>
-                    <br />
-                    Caça-palavras, 7 erros e ligue os pontos.
+                    <b className="text-primary">Atividades</b> — caça-palavras, 7 erros e ligue os
+                    pontos
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
                   <span className="shrink-0 text-[15px]">📱</span>
                   <span>
-                    <b className="text-primary">Papéis de parede da Barbie</b>
-                    <br />
-                    Para personalizar o celular.
+                    <b className="text-primary">Papéis de parede</b> da Barbie pro celular
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5 text-[12.5px] leading-5 text-ink">
+                  <span className="shrink-0 text-[15px]">🎀</span>
+                  <span>
+                    <b className="text-primary">Carteirinha de Princesa</b> pra imprimir
                   </span>
                 </li>
               </ul>
@@ -1046,10 +1050,17 @@ function Index() {
               onClick={(e) => openCheckout(e, CHECKOUT_VIP)}
               className="cta-btn mt-2.5 min-h-[50px] w-full whitespace-normal text-[14px]"
             >
-              QUERO MEU ACESSO POR R$14,90 + BRINDE 🎁
+              SIM! QUERO A SÉRIE + O KIT 🏠
               <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
-                Finalizar minha compra →
+                Levar tudo por R$9,90 →
               </span>
+            </a>
+            <a
+              href={CHECKOUT}
+              onClick={(e) => openCheckout(e, CHECKOUT)}
+              className="mt-2 flex w-full items-center justify-center px-2 text-center text-[12px] font-semibold text-muted-foreground underline"
+            >
+              Não, quero só assistir por R$6,90.
             </a>
           </div>
         </div>
