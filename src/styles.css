@@ -46,7 +46,7 @@
   --muted-foreground: oklch(0.55 0.05 340);
   --accent: oklch(0.72 0.19 350);
   --accent-foreground: oklch(1 0 0);
-  --border: oklch(0.89 0.06 349);
+  --border: oklch(0.78 0.1 349);
   --ink: oklch(0.24 0.02 340);
   --pink-soft: oklch(0.985 0.012 349);
   --gradient-cta: linear-gradient(135deg, oklch(0.68 0.22 350), oklch(0.55 0.24 345));
