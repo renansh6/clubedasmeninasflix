@@ -83,7 +83,7 @@
   animation: pulse-cta 2s ease-in-out infinite;
   will-change: transform, box-shadow;
   &:hover {
-    transform: translateY(-2px) scale(1.03);
+    transform: translateY(-2px) scale(1.05);
     filter: brightness(1.05);
   }
   @media (prefers-reduced-motion: reduce) {
@@ -105,8 +105,8 @@
     box-shadow: var(--shadow-cta);
   }
   50% {
-    transform: scale(1.025);
-    box-shadow: 0 12px 34px -8px oklch(0.6 0.245 348 / 0.85);
+    transform: scale(1.055);
+    box-shadow: 0 14px 40px -6px oklch(0.6 0.245 348 / 0.95);
   }
 }
 

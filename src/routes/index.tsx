@@ -969,7 +969,7 @@ function Index() {
         >
           <div
             ref={modalRef}
-            className="card-soft relative my-2 h-auto w-[calc(100vw-16px)] max-w-[400px] overflow-y-auto overscroll-contain border-2 border-primary p-4 text-center short:p-3"
+            className="card-soft relative my-2 h-auto w-[calc(100vw-16px)] max-w-[400px] overflow-y-auto overscroll-contain border-2 border-primary p-3.5 text-center short:p-2.5"
             style={{
               maxHeight: "calc(100vh - 16px)",
               maxBlockSize: "calc(100dvh - 16px)",
@@ -977,7 +977,7 @@ function Index() {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 z-10 -mx-4 -mt-4 h-0 pr-1 text-right short:-mx-3 short:-mt-3">
+            <div className="sticky top-0 z-10 -mx-3.5 -mt-3.5 h-0 pr-1 text-right short:-mx-2.5 short:-mt-2.5">
               <button
                 type="button"
                 onClick={() => setModalOpen(false)}
@@ -992,45 +992,45 @@ function Index() {
               🏠 Série exclusiva incluída
             </span>
 
-            <h3 className="mt-4 text-[19px] font-extrabold leading-[1.35] text-ink short:mt-3 short:text-[16px]">
+            <h3 className="mt-3 text-[17px] font-extrabold leading-[1.3] text-ink short:mt-2.5 short:text-[15px]">
               Espera! Por só <span className="text-primary">R$3 a mais</span>, você leva também a
               série <span className="text-primary">Life in the Dreamhouse</span> 👇
             </h3>
 
-            <p className="mt-3 text-[13.5px] leading-[1.45] text-muted-foreground">
+            <p className="mt-2 text-[12.5px] leading-[1.35] text-muted-foreground">
               Você já vai levar <b className="text-ink">todos os desenhos</b>. Falta a série que as
               meninas mais pedem — e ela não entra na oferta de R$6,90.
             </p>
 
-            <div className="relative mt-5 rounded-2xl border-2 border-[#f3b3d5] bg-[#fdeef6] p-4 pt-5 text-left">
+            <div className="relative mt-3.5 rounded-2xl border-2 border-[#f3b3d5] bg-[#fdeef6] p-3.5 pt-4.5 text-left">
               <span className="absolute -top-2.5 right-3 rounded-full bg-primary px-2.5 py-1 text-[9.5px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-card)]">
                 Incluído
               </span>
-              <div className="text-[14.5px] font-extrabold leading-snug text-primary">
+              <div className="text-[13.5px] font-extrabold leading-snug text-primary">
                 🏠 Barbie Life in the Dreamhouse
               </div>
-              <p className="mt-1.5 text-[12.5px] leading-5 text-muted-foreground">
+              <p className="mt-1 text-[12px] leading-[1.35] text-muted-foreground">
                 A série completa e dublada: Barbie, Ken, Skipper e Raquelle em episódios curtinhos,
                 perfeitos pra maratonar.
               </p>
             </div>
 
-            <div className="mt-4 rounded-2xl border border-[#f7d9e8] bg-card p-4 text-left">
-              <ul className="flex flex-col gap-3.5">
-                <li className="flex items-start gap-2.5 text-[13px] leading-[1.5] text-ink">
+            <div className="mt-3 rounded-2xl border border-[#f7d9e8] bg-card p-3.5 text-left">
+              <ul className="flex flex-col gap-2.5">
+                <li className="flex items-start gap-2.5 text-[12.5px] leading-[1.4] text-ink">
                   <span className="shrink-0 text-[15px]">🧩</span>
                   <span>
                     <b className="text-primary">Atividades</b> — caça-palavras, 7 erros e ligue os
                     pontos
                   </span>
                 </li>
-                <li className="flex items-start gap-2.5 text-[13px] leading-[1.5] text-ink">
+                <li className="flex items-start gap-2.5 text-[12.5px] leading-[1.4] text-ink">
                   <span className="shrink-0 text-[15px]">📱</span>
                   <span>
                     <b className="text-primary">Papéis de parede</b> da Barbie pro celular
                   </span>
                 </li>
-                <li className="flex items-start gap-2.5 text-[13px] leading-[1.5] text-ink">
+                <li className="flex items-start gap-2.5 text-[12.5px] leading-[1.4] text-ink">
                   <span className="shrink-0 text-[15px]">🎀</span>
                   <span>
                     <b className="text-primary">Carteirinha de Princesa</b> pra imprimir
@@ -1039,19 +1039,19 @@ function Index() {
               </ul>
             </div>
 
-            <div className="mt-4">
-              <div className="text-[13px] font-semibold text-muted-foreground">
+            <div className="mt-3">
+              <div className="text-[12.5px] font-semibold text-muted-foreground">
                 De <s className="text-primary/70">R$29,90</s> por apenas +R$3
               </div>
-              <div className="text-[32px] font-extrabold leading-none text-primary">
-                <small className="align-super text-base font-bold">R$</small>9,90
+              <div className="text-[26px] font-extrabold leading-none text-primary">
+                <small className="align-super text-sm font-bold">R$</small>9,90
               </div>
             </div>
 
             <a
               href={CHECKOUT_VIP}
               onClick={(e) => openCheckout(e, CHECKOUT_VIP)}
-              className="cta-btn mt-4 min-h-[50px] w-full whitespace-normal text-[14px]"
+              className="cta-btn mt-3 min-h-[48px] w-full whitespace-normal text-[14px]"
             >
               SIM! QUERO A SÉRIE + O KIT 🏠
               <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
