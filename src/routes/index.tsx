@@ -776,25 +776,25 @@ function Index() {
         ))}
       </div>
 
-      <div className="mt-4 space-y-3">
+      <div className="mt-3 space-y-2">
         {COMMENTS.map((c) => (
-          <div key={c.user} className="flex gap-3">
+          <div key={c.user} className="card-soft flex gap-2.5 p-3">
             <img
               src={c.photo}
               alt={c.user}
               loading="lazy"
               decoding="async"
-              width={44}
-              height={44}
-              className="mt-0.5 h-11 w-11 shrink-0 rounded-full border-2 border-primary/30 object-cover object-center"
+              width={36}
+              height={36}
+              className="h-9 w-9 shrink-0 rounded-full border-2 border-primary/30 object-cover object-center"
               style={{ background: c.grad, aspectRatio: "1 / 1" }}
             />
 
             <div>
-              <div className="text-[13.5px] leading-6 text-ink">
+              <div className="text-[13px] leading-[1.35] text-ink">
                 <b>{c.user}</b> comentou: {c.txt}
               </div>
-              <div className="mt-1 text-[11.5px] font-semibold text-muted-foreground">
+              <div className="mt-0.5 text-[11px] font-semibold text-muted-foreground">
                 <span className="text-primary">♥</span> Responder · {c.time}
               </div>
             </div>
