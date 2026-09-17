@@ -17,11 +17,57 @@ import familyLivros from "@/assets/opt/pf-livros.webp.asset.json";
 import { PosterCarousel } from "@/components/PosterCarousel";
 import { CARTOONS, TOP_CARTOONS } from "@/data/cartoons";
 
-// Distribui os desenhos em 3 fileiras (round-robin) pro carrossel de 3
-// linhas não repetir o mesmo desenho empilhado na mesma posição vertical.
-const CARTOONS_ROW_1 = CARTOONS.filter((_, i) => i % 3 === 0);
-const CARTOONS_ROW_2 = CARTOONS.filter((_, i) => i % 3 === 1);
-const CARTOONS_ROW_3 = CARTOONS.filter((_, i) => i % 3 === 2);
+// Ordem fixa dos primeiros cards de cada fileira do carrossel de 3 linhas
+// (sempre os mesmos, na mesma ordem, já no primeiro carregamento da página).
+const ROW_1_START_IDS = [
+  "barbie",
+  "winx",
+  "princesas",
+  "superpoderosas",
+  "espias",
+  "moranguinho",
+  "polly",
+  "kim",
+];
+const ROW_2_START_IDS = [
+  "frozen",
+  "ladybug",
+  "hellokitty",
+  "pony",
+  "tinker",
+  "sofia",
+  "bluey",
+  "gabby",
+];
+const ROW_3_START_IDS = [
+  "monsterhigh",
+  "bratz",
+  "sailor",
+  "sakura",
+  "lilo",
+  "everafter",
+  "pucca",
+  "witch",
+];
+
+const CARTOONS_BY_ID = new Map(CARTOONS.map((c) => [c.id, c]));
+const STARTING_IDS = new Set([...ROW_1_START_IDS, ...ROW_2_START_IDS, ...ROW_3_START_IDS]);
+// Desenhos restantes, na ordem original do catálogo, distribuídos em
+// round-robin entre as 3 fileiras pra completar cada uma até o fim.
+const REMAINING_CARTOONS = CARTOONS.filter((c) => !STARTING_IDS.has(c.id));
+
+const CARTOONS_ROW_1 = [
+  ...ROW_1_START_IDS.map((id) => CARTOONS_BY_ID.get(id)!),
+  ...REMAINING_CARTOONS.filter((_, i) => i % 3 === 0),
+];
+const CARTOONS_ROW_2 = [
+  ...ROW_2_START_IDS.map((id) => CARTOONS_BY_ID.get(id)!),
+  ...REMAINING_CARTOONS.filter((_, i) => i % 3 === 1),
+];
+const CARTOONS_ROW_3 = [
+  ...ROW_3_START_IDS.map((id) => CARTOONS_BY_ID.get(id)!),
+  ...REMAINING_CARTOONS.filter((_, i) => i % 3 === 2),
+];
 
 const FAMILY_ITEMS = [
   { title: "Desenhos nostálgicos", img: familyOld.url, w: 200, h: 112 },
