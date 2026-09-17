@@ -5,6 +5,8 @@ type Props = {
   items: Cartoon[];
   /** pixels por segundo do movimento automático */
   speed?: number;
+  /** sentido do movimento automático (padrão: esquerda, igual sempre foi) */
+  direction?: "left" | "right";
   size?: "sm" | "md";
   /** mostra a etiqueta "deslize para o lado" acima do carrossel */
   hint?: boolean;
@@ -39,6 +41,7 @@ function fadeIn(img: HTMLImageElement | null) {
 export function PosterCarousel({
   items,
   speed = 30,
+  direction = "left",
   size = "md",
   hint = false,
   eager = 4,
@@ -111,7 +114,7 @@ export function PosterCarousel({
       last = now;
       if (!paused.current) {
         if (halfWidth.current <= 0) measure();
-        offset.current -= speed * dt;
+        offset.current += (direction === "right" ? 1 : -1) * speed * dt;
         normalize();
         el.style.transform = `translate3d(${offset.current}px,0,0)`;
       }
@@ -193,7 +196,7 @@ export function PosterCarousel({
       window.removeEventListener("mouseup", up);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [speed, items.length]);
+  }, [speed, direction, items.length]);
 
   // dimensões fixas do pôster mantendo proporção 3:4
   const dims = size === "sm" ? "w-[104px] h-[139px]" : "w-[132px] h-[176px]";

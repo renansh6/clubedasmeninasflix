@@ -17,6 +17,12 @@ import familyLivros from "@/assets/opt/pf-livros.webp.asset.json";
 import { PosterCarousel } from "@/components/PosterCarousel";
 import { CARTOONS, TOP_CARTOONS } from "@/data/cartoons";
 
+// Distribui os desenhos em 3 fileiras (round-robin) pro carrossel de 3
+// linhas não repetir o mesmo desenho empilhado na mesma posição vertical.
+const CARTOONS_ROW_1 = CARTOONS.filter((_, i) => i % 3 === 0);
+const CARTOONS_ROW_2 = CARTOONS.filter((_, i) => i % 3 === 1);
+const CARTOONS_ROW_3 = CARTOONS.filter((_, i) => i % 3 === 2);
+
 const FAMILY_ITEMS = [
   { title: "Desenhos nostálgicos", img: familyOld.url, w: 200, h: 112 },
   { title: "Gibis digitais", img: familyGibis.url, w: 200, h: 125 },
@@ -680,8 +686,29 @@ function Index() {
         <p className="mt-2 text-center text-[13.5px] font-medium text-muted-foreground">
           Arraste para o lado e veja tudo o que entra no seu acesso 💕
         </p>
-        <div className="mt-5">
-          <PosterCarousel items={CARTOONS} speed={48} hint deferUntilVisible initialBatch={6} />
+        <div className="mt-5 space-y-3">
+          <PosterCarousel
+            items={CARTOONS_ROW_1}
+            speed={48}
+            direction="left"
+            hint
+            deferUntilVisible
+            initialBatch={6}
+          />
+          <PosterCarousel
+            items={CARTOONS_ROW_2}
+            speed={48}
+            direction="right"
+            deferUntilVisible
+            initialBatch={6}
+          />
+          <PosterCarousel
+            items={CARTOONS_ROW_3}
+            speed={48}
+            direction="left"
+            deferUntilVisible
+            initialBatch={6}
+          />
         </div>
       </section>
 
