@@ -108,7 +108,7 @@ export const CARTOONS: Cartoon[] = [
   { id: "toystory3", name: "Toy Story 3", grad: "linear-gradient(160deg,#FCA5A5,#DC2626)", image: "/toons/toy-story-3.jpg", w: 235, h: 352 },
   { id: "toystory4", name: "Toy Story 4", grad: "linear-gradient(160deg,#DDD6FE,#7C3AED)", image: "/toons/toy-story-4.jpg", w: 234, h: 352 },
   { id: "toystoryesq", name: "Toy Story: Esquecidos pelo Tempo", grad: "linear-gradient(160deg,#FDBA74,#C2410C)", image: "/toons/toy-story-esquecidos-pelo-tempo.jpg", w: 252, h: 352 },
-  { id: "toystoryrex", name: "Toy Story: Festassauro Rex", grad: "linear-gradient(160deg,#BBF7D0,#16A34A)", image: "/toons/toy-story-festassauro-rex.jpg", w: 249, h: 352 },
+  { id: "toystoryrex", name: "Toy Story: Festassauro Rex", grad: "linear-gradient(160deg,#BBF7D0,#16A34A)", image: "/toons/toy-story-festassauro-rex.webp", w: 280, h: 396 },
   { id: "toystorymundo", name: "Toy Story: Um Mundo de Aventuras", grad: "linear-gradient(160deg,#BAE6FD,#0284C7)", image: "/toons/toy-story-um-mundo-de-aventuras.jpg", w: 237, h: 352 },
 ];
 
