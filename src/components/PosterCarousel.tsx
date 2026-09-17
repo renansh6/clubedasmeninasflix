@@ -122,50 +122,46 @@ export function PosterCarousel({
     };
     raf = requestAnimationFrame(step);
 
-    // arrastar com o dedo / mouse (touch events funcionam no iOS antigo também)
+    // arrastar com o dedo / mouse (touch events funcionam no iOS antigo também).
+    // Só pausa se o ponteiro realmente se mover (arrasto de verdade) — um
+    // simples toque/clique no card não pode travar a animação.
     let dragging = false;
+    let didDrag = false;
     let startX = 0;
     let startOffset = 0;
+    const DRAG_THRESHOLD = 6;
 
     const getX = (e: TouchEvent | MouseEvent) =>
       "touches" in e ? (e.touches[0]?.clientX ?? 0) : e.clientX;
 
     const down = (e: TouchEvent | MouseEvent) => {
       dragging = true;
-      paused.current = true;
-      window.clearTimeout(resumeTimer);
+      didDrag = false;
       startX = getX(e);
       startOffset = offset.current;
     };
     const move = (e: TouchEvent | MouseEvent) => {
       if (!dragging) return;
-      offset.current = startOffset + (getX(e) - startX);
+      const dx = getX(e) - startX;
+      if (!didDrag) {
+        if (Math.abs(dx) < DRAG_THRESHOLD) return;
+        didDrag = true;
+        paused.current = true;
+        window.clearTimeout(resumeTimer);
+      }
+      offset.current = startOffset + dx;
       normalize();
       el.style.transform = `translate3d(${offset.current}px,0,0)`;
     };
     const up = () => {
       if (!dragging) return;
       dragging = false;
+      if (!didDrag) return;
       resumeTimer = window.setTimeout(() => {
         paused.current = false;
         last = 0;
-      }, 2000);
+      }, 400);
     };
-
-    // desktop: pausa enquanto o mouse está sobre o carrossel
-    const enter = () => {
-      paused.current = true;
-      window.clearTimeout(resumeTimer);
-    };
-    const leave = () => {
-      if (dragging) return;
-      resumeTimer = window.setTimeout(() => {
-        paused.current = false;
-        last = 0;
-      }, 300);
-    };
-    el.addEventListener("mouseenter", enter);
-    el.addEventListener("mouseleave", leave);
 
     el.addEventListener("touchstart", down, { passive: true });
     el.addEventListener("touchmove", move, { passive: true });
@@ -190,8 +186,6 @@ export function PosterCarousel({
       el.removeEventListener("touchend", up);
       el.removeEventListener("touchcancel", up);
       el.removeEventListener("mousedown", down);
-      el.removeEventListener("mouseenter", enter);
-      el.removeEventListener("mouseleave", leave);
       window.removeEventListener("mousemove", move);
       window.removeEventListener("mouseup", up);
       document.removeEventListener("visibilitychange", onVisibility);
@@ -216,7 +210,11 @@ export function PosterCarousel({
           {loop.map((c, i) => {
             const base = i % items.length;
             const show = base < loadCount;
-            const isEager = base < eager && !deferUntilVisible;
+            // Num carrossel adiado (deferUntilVisible), o próprio lote inicial
+            // só carrega quando a seção já está perto da tela — então essas
+            // capas devem entrar com prioridade alta, não "lazy"/"low", senão
+            // demoram mais que o necessário pra aparecer.
+            const isEager = deferUntilVisible ? base < initialBatch : base < eager;
             return (
               <figure
                 key={`${c.id}-${i}`}
