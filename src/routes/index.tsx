@@ -9,7 +9,7 @@ import familyGibis from "@/assets/opt/pf-gibis.webp.asset.json";
 import familyLivros from "@/assets/opt/pf-livros.webp.asset.json";
 import { PosterCarousel } from "@/components/PosterCarousel";
 import { TestimonialWhatsappCarousel } from "@/components/TestimonialWhatsappCarousel";
-import { CARTOONS, TOP_CARTOONS } from "@/data/cartoons";
+import { CARTOONS } from "@/data/cartoons";
 
 const WHATSAPP_TESTIMONIALS = Array.from({ length: 7 }, (_, i) => ({
   src: `/depoimentos/whatsapp-${i + 1}.webp`,
@@ -232,6 +232,53 @@ function LiveViewerBadge() {
   );
 }
 
+/**
+ * Player da VSL: mostra a capa (poster) com botão de play em destaque;
+ * começa parado, sem som automático. Ao tocar, dá play com áudio (gesto do
+ * usuário — os navegadores permitem) e revela os controles nativos.
+ */
+function VslPlayer() {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [started, setStarted] = useState(false);
+
+  const start = () => {
+    const video = ref.current;
+    if (!video) return;
+    video.muted = false;
+    setStarted(true);
+    const p = video.play();
+    if (p) p.catch(() => {});
+  };
+
+  return (
+    <div className="relative h-full w-full">
+      <video
+        ref={ref}
+        src="/videos/vsl.mp4"
+        poster="/videos/vsl-poster.webp"
+        playsInline
+        preload="metadata"
+        controls={started}
+        className="absolute inset-0 h-full w-full object-contain"
+      />
+      {!started && (
+        <button
+          type="button"
+          onClick={start}
+          aria-label="Assistir ao vídeo"
+          className="absolute inset-0 z-10 flex h-full w-full cursor-pointer items-center justify-center border-0 bg-black/10 p-0"
+        >
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-[var(--shadow-cta)]">
+            <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 fill-primary-foreground">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </button>
+      )}
+    </div>
+  );
+}
+
 const FAQ = [
   {
     q: "Como funciona o acesso?",
@@ -350,22 +397,6 @@ function OfferCard({
         </div>
       )}
       <h3 className="mt-4 text-[17px] font-extrabold uppercase leading-snug text-ink">{title}</h3>
-
-      {tag === "Oferta Exclusiva" && (
-        <div className="mt-4">
-          <div className="text-[12px] font-bold text-muted-foreground">
-            Os 10 desenhos mais pedidos:
-          </div>
-          <div className="mt-3">
-            <PosterCarousel items={TOP_CARTOONS} size="sm" speed={30} hint eager={4} initialBatch={8} />
-          </div>
-          <div className="mt-1 flex justify-center">
-            <span className="rounded-full bg-primary px-3 py-1.5 text-[11.5px] font-bold text-primary-foreground">
-              Diversos desenhos no acervo
-            </span>
-          </div>
-        </div>
-      )}
 
       <div className="mt-3 text-[14px] font-bold text-muted-foreground">
         ➡ De: <s className="text-primary/70">R$59,90</s>
@@ -521,24 +552,30 @@ function Index() {
 
       <Divider />
 
-      <OfferCard
-        tag="Oferta Exclusiva"
-        scarcity="🔥 Valor promocional de lançamento — por tempo limitado"
-        title="Os desenhos mais amados, num lugar só"
-        cta="QUERO MEU ACESSO POR R$6,90 💖"
-        onCta={handleCta}
-        note={
-          <>
-            🔒 Compra 100% segura · PIX na hora
-            <br />
-            💗 7 dias de garantia — risco zero
-          </>
-        }
-      />
-      <p className="mt-2 text-center text-[12.5px] font-medium text-muted-foreground">
-        Esse é apenas um valor simbólico para nos ajudar a manter tudo no ar e com qualidade para
-        você! 💖
-      </p>
+      <section className="card-soft px-5 py-7 text-center sm:px-7">
+        <div
+          className="mx-auto w-full max-w-[380px] overflow-hidden rounded-2xl border border-border bg-black"
+          style={{ aspectRatio: "9 / 16" }}
+        >
+          <VslPlayer />
+        </div>
+
+        <button
+          type="button"
+          onClick={handleCta}
+          onPointerEnter={preloadFamily}
+          onFocus={preloadFamily}
+          onTouchStart={preloadFamily}
+          className="cta-btn mt-4"
+        >
+          QUERO MEU ACESSO AGORA 💖
+        </button>
+        <div className="mt-3 text-[12px] font-semibold leading-relaxed text-muted-foreground">
+          🔒 Compra 100% segura · PIX na hora
+          <br />
+          💗 7 dias de garantia — risco zero
+        </div>
+      </section>
 
       <Divider />
 
