@@ -627,22 +627,6 @@ function Index() {
         <TestimonialWhatsappCarousel items={WHATSAPP_TESTIMONIALS} />
       </div>
 
-      <Divider />
-
-      {/* HISTÓRIA */}
-      <section className="card-soft p-5 text-center">
-        <h3 className="text-[16px] font-extrabold leading-snug text-ink">
-          Sabemos como é difícil encontrar os desenhos da nossa infância em alta qualidade e
-          dublados na internet…
-        </h3>
-        <p className="mt-3 text-[14px] leading-6 text-muted-foreground">
-          Por esse motivo nós criamos esse acervo. Reunimos os melhores desenhos para meninas
-          completos — das Princesas Disney à Barbie, Winx, Frozen, Sailor Moon e muito mais — na
-          melhor qualidade e dublados em português, pra você assistir sempre que quiser 💗
-        </p>
-
-      </section>
-
       <Divider className="my-5" />
 
       {/* APARELHOS */}
