@@ -17,7 +17,7 @@ type Props = {
  * truque clássico de clonar o primeiro/último slide nas pontas: ao chegar
  * no clone, troca a posição sem transição (imperceptível) e continua.
  */
-export function TestimonialWhatsappCarousel({ items, intervalSeconds = 3.5 }: Props) {
+export function TestimonialWhatsappCarousel({ items, intervalSeconds = 6.5 }: Props) {
   const n = items.length;
   const loop: WhatsappSlide[] = n > 1 ? [items[n - 1]!, ...items, items[0]!] : items;
   const trackRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,7 @@ export function TestimonialWhatsappCarousel({ items, intervalSeconds = 3.5 }: Pr
   const applyTransform = (withTransition: boolean) => {
     const el = trackRef.current;
     if (!el) return;
-    el.style.transition = withTransition ? "transform .45s ease" : "none";
+    el.style.transition = withTransition ? "transform .6s ease" : "none";
     el.style.transform = `translate3d(${-index.current * 100}%,0,0)`;
   };
 
