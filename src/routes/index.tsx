@@ -554,7 +554,7 @@ function Index() {
 
       <div className="text-center">
         <p
-          className="mb-3 text-[18px] font-bold text-ink"
+          className="mb-3 whitespace-nowrap text-[13.5px] font-bold text-ink sm:text-[18px]"
           style={{ fontFamily: "'Fredoka', sans-serif" }}
         >
           Veja como a plataforma funciona por dentro ✨
