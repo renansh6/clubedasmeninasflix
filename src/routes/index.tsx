@@ -4,18 +4,17 @@ import heroWebp640 from "@/assets/opt/banner-640.webp.asset.json";
 import heroWebp1240 from "@/assets/opt/banner-1240.webp.asset.json";
 import heroAvif640 from "@/assets/opt/banner-640.avif.asset.json";
 import heroAvif1240 from "@/assets/opt/banner-1240.avif.asset.json";
-import p1 from "@/assets/opt/p-b0f0984490591b39f5f716d9eeb7777a.webp.asset.json";
-import p2 from "@/assets/opt/p-c89e421ad752787e42b5e438c94a1220.webp.asset.json";
-import p3 from "@/assets/opt/p-e0dfbe3ead389b80337081bc741c9545.webp.asset.json";
-import p4 from "@/assets/opt/p-6e0e8d735aecbad446150d34e955de3c.webp.asset.json";
-import p5 from "@/assets/opt/p-94ab5b7ef6368f63ce05a34046de0a2b.webp.asset.json";
-import p6 from "@/assets/opt/p-5388f1ba2629e6450df7bdea32f1545e.webp.asset.json";
-import p7 from "@/assets/opt/p-a742f020551d38a4766a417861ae3255.webp.asset.json";
 import familyOld from "@/assets/opt/pf-desenhos.webp.asset.json";
 import familyGibis from "@/assets/opt/pf-gibis.webp.asset.json";
 import familyLivros from "@/assets/opt/pf-livros.webp.asset.json";
 import { PosterCarousel } from "@/components/PosterCarousel";
+import { TestimonialWhatsappCarousel } from "@/components/TestimonialWhatsappCarousel";
 import { CARTOONS, TOP_CARTOONS } from "@/data/cartoons";
+
+const WHATSAPP_TESTIMONIALS = Array.from({ length: 7 }, (_, i) => ({
+  src: `/depoimentos/whatsapp-${i + 1}.webp`,
+  alt: `Print de conversa no WhatsApp com depoimento de uma cliente ${i + 1}`,
+}));
 
 // Ordem fixa dos primeiros cards de cada fileira do carrossel de 3 linhas
 // (sempre os mesmos, na mesma ordem, já no primeiro carregamento da página).
@@ -311,65 +310,6 @@ const ACCESS_BENEFITS = [
   { text: "Assista pelo celular, tablet, computador ou Smart TV" },
 ];
 
-
-const REVIEWS = [
-  {
-    photo: p1.url,
-    initials: "MS",
-    name: "Mariana Santos",
-    grad: "linear-gradient(135deg,#F65BAE,#D6167E)",
-    txt: "Eu amei esse acervo! Cresci assistindo Princesas e Winx e agora posso rever tudo com a minha filha. Que nostalgia, tô apaixonada! 🥹💖",
-  },
-  {
-    photo: p2.url,
-    initials: "TS",
-    name: "Tauany Silveira",
-    grad: "linear-gradient(135deg,#B96CE0,#7E3FD6)",
-    txt: "Tô me sentindo criança de novo kkkk maratonei Sailor Moon e Três Espiãs Demais no mesmo dia. Já mandei pra minha irmã!",
-  },
-  {
-    photo: p3.url,
-    initials: "JA",
-    name: "Juliana Alves",
-    grad: "linear-gradient(135deg,#F79BC4,#E0218A)",
-    txt: "Gente, entrei ontem e fiquei até tarde vendo os filmes das Princesas e da Barbie. Não consegui parar! Qualidade perfeita e tudo dublado 😍✨",
-  },
-];
-
-const COMMENTS = [
-  {
-    photo: p4.url,
-    initials: "CM",
-    grad: "linear-gradient(135deg,#F65BAE,#C21E77)",
-    user: "carol_mendes22",
-    txt: "Meninaaa, tava doida pra rever esses filmes com a minha filha e achei tudo aqui 🥰",
-    time: "4 h",
-  },
-  {
-    photo: p5.url,
-    initials: "BL",
-    grad: "linear-gradient(135deg,#C98CE8,#8A46D6)",
-    user: "bruna.lima",
-    txt: "Ficou muito bom! Fazia anos que eu procurava os filmes antigos dublados e não achava. Recomendo demais!",
-    time: "2 h",
-  },
-  {
-    photo: p6.url,
-    initials: "AS",
-    grad: "linear-gradient(135deg,#F79BC4,#E0218A)",
-    user: "amanda_souza",
-    txt: "Eu e a minha filha passamos a tarde assistindo Frozen, Ladybug e Moranguinho kkk nostalgia total 💕",
-    time: "2 h",
-  },
-  {
-    photo: p7.url,
-    initials: "LD",
-    grad: "linear-gradient(135deg,#FF9EBB,#D6167E)",
-    user: "leticia_dias",
-    txt: "Tô simplesmente apaixonada nesse acervo 💖 ficou perfeito",
-    time: "2 h",
-  },
-];
 
 const BUYERS = [
   "Amanda de São Paulo",
@@ -823,56 +763,8 @@ function Index() {
         acervo 💕
       </p>
 
-      <div className="mt-5 space-y-2">
-        {REVIEWS.map((r) => (
-          <div key={r.initials} className="card-soft flex gap-2.5 p-3">
-            <img
-              src={r.photo}
-              alt={r.name}
-              loading="lazy"
-              decoding="async"
-              width={36}
-              height={36}
-              className="h-9 w-9 shrink-0 rounded-full border-2 border-primary/40 object-cover object-center"
-              style={{ background: r.grad, aspectRatio: "1 / 1" }}
-            />
-
-            <div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-[13px] font-bold text-ink">{r.name}</span>
-                <span className="text-[11px] text-muted-foreground">· Via Instagram</span>
-              </div>
-              <div className="text-[12px] tracking-widest text-[#f5b301]">★★★★★</div>
-              <p className="mt-0.5 text-[13px] leading-[1.35] text-ink">{r.txt}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-3 space-y-2">
-        {COMMENTS.map((c) => (
-          <div key={c.user} className="card-soft flex gap-2.5 p-3">
-            <img
-              src={c.photo}
-              alt={c.user}
-              loading="lazy"
-              decoding="async"
-              width={36}
-              height={36}
-              className="h-9 w-9 shrink-0 rounded-full border-2 border-primary/30 object-cover object-center"
-              style={{ background: c.grad, aspectRatio: "1 / 1" }}
-            />
-
-            <div>
-              <div className="text-[13px] leading-[1.35] text-ink">
-                <b>{c.user}</b> comentou: {c.txt}
-              </div>
-              <div className="mt-0.5 text-[11px] font-semibold text-muted-foreground">
-                <span className="text-primary">♥</span> Responder · {c.time}
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="mt-5">
+        <TestimonialWhatsappCarousel items={WHATSAPP_TESTIMONIALS} />
       </div>
 
       <Divider />
