@@ -86,10 +86,15 @@ export function TestimonialWhatsappCarousel({ items, intervalSeconds = 6.5 }: Pr
 
     const onDown = (e: TouchEvent | MouseEvent) => {
       dragging = true;
+      // Se o arrasto começar bem no meio da troca automática de slide, a
+      // transição em andamento fica "congelada" numa posição que não bate
+      // com index.current. Cancela a transição e realinha pra posição
+      // limpa antes de começar a arrastar, senão o carrossel pode ficar
+      // travado entre dois prints depois do gesto.
+      animating.current = false;
+      applyTransform(false);
       startX = getX(e);
       dragDx = 0;
-      const trackEl = trackRef.current;
-      if (trackEl) trackEl.style.transition = "none";
     };
     const onMove = (e: TouchEvent | MouseEvent) => {
       if (!dragging) return;
