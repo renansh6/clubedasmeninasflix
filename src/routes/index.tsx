@@ -656,11 +656,6 @@ function Index() {
       <h2 className="text-center text-[20px] font-extrabold text-ink">
         💬 Acompanhe o feedback de quem já garantiu
       </h2>
-      <p className="mt-2 text-center text-[13.5px] font-medium text-muted-foreground">
-        Acompanhe o depoimento de algumas das milhares de fãs que já garantiram seu acesso ao nosso
-        acervo 💕
-      </p>
-
       <div className="mt-5">
         <TestimonialWhatsappCarousel items={WHATSAPP_TESTIMONIALS} />
       </div>
