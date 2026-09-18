@@ -553,6 +553,12 @@ function Index() {
       <Divider />
 
       <div className="text-center">
+        <p
+          className="mb-3 text-[18px] font-bold text-ink"
+          style={{ fontFamily: "'Fredoka', sans-serif" }}
+        >
+          Veja como a plataforma funciona por dentro ✨
+        </p>
         <div
           className="mx-auto w-[90%] max-w-[400px] overflow-hidden rounded-2xl"
           style={{ aspectRatio: "9 / 16" }}
