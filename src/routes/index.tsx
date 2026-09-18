@@ -557,21 +557,21 @@ function Index() {
             direction="left"
             hint
             deferUntilVisible
-            initialBatch={6}
+            initialBatch={18}
           />
           <PosterCarousel
             items={CARTOONS_ROW_2}
             speed={48}
             direction="right"
             deferUntilVisible
-            initialBatch={6}
+            initialBatch={18}
           />
           <PosterCarousel
             items={CARTOONS_ROW_3}
             speed={48}
             direction="left"
             deferUntilVisible
-            initialBatch={6}
+            initialBatch={18}
           />
         </div>
       </section>
