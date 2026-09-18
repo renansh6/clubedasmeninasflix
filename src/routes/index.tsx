@@ -552,9 +552,9 @@ function Index() {
 
       <Divider />
 
-      <section className="card-soft px-5 py-7 text-center sm:px-7">
+      <div className="text-center">
         <div
-          className="mx-auto w-full max-w-[380px] overflow-hidden rounded-2xl border border-border bg-black"
+          className="mx-auto w-[90%] max-w-[400px] overflow-hidden rounded-2xl"
           style={{ aspectRatio: "9 / 16" }}
         >
           <VslPlayer />
@@ -570,12 +570,7 @@ function Index() {
         >
           QUERO MEU ACESSO AGORA 💖
         </button>
-        <div className="mt-3 text-[12px] font-semibold leading-relaxed text-muted-foreground">
-          🔒 Compra 100% segura · PIX na hora
-          <br />
-          💗 7 dias de garantia — risco zero
-        </div>
-      </section>
+      </div>
 
       <Divider />
 
