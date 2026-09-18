@@ -545,7 +545,7 @@ function Index() {
       {/* CARROSSEL DOS DESENHOS */}
       <section>
         <h2 className="text-center text-[20px] font-extrabold text-ink">
-          🎬 Nossos desenhos que estão te esperando
+          🎬 Olha tudo o que você vai encontrar no seu acesso
         </h2>
         <p className="mt-2 text-center text-[13.5px] font-medium text-muted-foreground">
           Arraste para o lado e veja tudo o que entra no seu acesso 💕
