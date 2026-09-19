@@ -403,7 +403,7 @@ function OfferCard({
       </div>
       <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
       <div className="text-6xl font-extrabold leading-none text-primary">
-        <small className="align-super text-2xl font-bold">R$</small>6,90
+        <small className="align-super text-2xl font-bold">R$</small>9,90
       </div>
 
       <button
@@ -721,7 +721,7 @@ function Index() {
       <OfferCard
         tag="Última chamada"
         title="Reviva a magia dos seus desenhos favoritos ainda hoje"
-        cta="GARANTIR MEU ACESSO POR R$6,90 🎀"
+        cta="GARANTIR MEU ACESSO POR R$9,90 🎀"
         onCta={handleCta}
         note={<>🔒 Compra 100% segura · 💗 7 dias de garantia incondicional</>}
       />
@@ -833,13 +833,13 @@ function Index() {
             </span>
 
             <h3 className="mt-3 text-[17px] font-extrabold leading-[1.3] text-ink short:mt-2.5 short:text-[15px]">
-              Espera! Por só <span className="text-primary">R$3 a mais</span>, você leva também a
+              Espera! Por só <span className="text-primary">R$10 a mais</span>, você leva também a
               série <span className="text-primary">Life in the Dreamhouse</span> 👇
             </h3>
 
             <p className="mt-2 text-[12.5px] leading-[1.35] text-muted-foreground">
               Você já vai levar <b className="text-ink">todos os desenhos</b>. Falta a série que as
-              meninas mais pedem — e ela não entra na oferta de R$6,90.
+              meninas mais pedem — e ela não entra na oferta de R$9,90.
             </p>
 
             <div className="relative mt-3.5 rounded-2xl border-2 border-[#f3b3d5] bg-[#fdeef6] p-3.5 pt-4.5 text-left">
@@ -881,10 +881,10 @@ function Index() {
 
             <div className="mt-3">
               <div className="text-[12.5px] font-semibold text-muted-foreground">
-                De <s className="text-primary/70">R$29,90</s> por apenas +R$3
+                De <s className="text-primary/70">R$29,90</s> por apenas +R$10
               </div>
               <div className="text-[26px] font-extrabold leading-none text-primary">
-                <small className="align-super text-sm font-bold">R$</small>9,90
+                <small className="align-super text-sm font-bold">R$</small>19,90
               </div>
             </div>
 
@@ -895,7 +895,7 @@ function Index() {
             >
               SIM! QUERO A SÉRIE + O KIT 🏠
               <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
-                Levar tudo por R$9,90 →
+                Levar tudo por R$19,90 →
               </span>
             </a>
             <a
@@ -903,7 +903,7 @@ function Index() {
               onClick={(e) => openCheckout(e, CHECKOUT)}
               className="mt-4 flex w-full items-center justify-center px-2 text-center text-[13.5px] font-semibold text-muted-foreground underline"
             >
-              Não, quero só assistir por R$6,90.
+              Não, quero só assistir por R$9,90.
             </a>
           </div>
         </div>
