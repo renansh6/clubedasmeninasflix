@@ -177,14 +177,15 @@ function openCheckout(e: React.MouseEvent<HTMLAnchorElement>, url: string) {
 
 
 const ACCESS_BENEFITS = [
-  { text: "Conteúdo em ", bold: "Full HD 1080p + 4K" },
+  { text: "Conteúdo em ", bold: "Full HD + 4K" },
   { text: "Tudo ", bold: "dublado em português" },
-  { text: "Interface simples e organizada" },
+  { text: "Sem anúncios" },
   { text: "Encontre facilmente cada desenho e episódio" },
   { text: "Acesso imediato enviado diretamente pelo WhatsApp" },
-  { text: "Acesso 100% ", bold: "vitalício" },
+  { text: "Acesso 100% ", bold: "vitalício e sem mensalidades" },
   { text: "Pagamento único, ", bold: "sem mensalidades" },
-  { text: "Atualizações futuras do acervo sem custo adicional" },
+  { text: "Atualizações semanais do acervo sem custo adicional" },
+  { text: "Suporte premium 24/7" },
   { text: "Assista pelo celular, tablet, computador ou Smart TV" },
 ];
 
