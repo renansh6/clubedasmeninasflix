@@ -400,7 +400,7 @@ function OfferCard({
       <h3 className="mt-4 text-[17px] font-extrabold uppercase leading-snug text-ink">{title}</h3>
 
       <div className="mt-3 text-[14px] font-bold text-muted-foreground">
-        ➡ De: <s className="text-primary/70">R$59,90</s>
+        ➡ De: <s className="text-primary/70">R$29,90</s>
       </div>
       <div className="text-[13px] font-semibold text-muted-foreground">Por apenas</div>
       <div className="text-6xl font-extrabold leading-none text-primary">
