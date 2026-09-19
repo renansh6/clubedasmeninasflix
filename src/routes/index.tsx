@@ -547,6 +547,13 @@ function Index() {
           português e em alta qualidade! 💖
         </h1>
 
+        <p
+          className="mt-3 whitespace-nowrap text-center font-extrabold text-primary"
+          style={{ fontSize: "clamp(13px, 4vw, 20px)" }}
+        >
+          Mais de 500 desenhos para você maratonar!
+        </p>
+
         <LiveViewerBadge />
       </section>
 
