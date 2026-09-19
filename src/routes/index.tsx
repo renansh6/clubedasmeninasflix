@@ -582,7 +582,7 @@ function Index() {
           onTouchStart={preloadFamily}
           className="cta-btn mt-4"
         >
-          QUERO MEU ACESSO AGORA 💖
+          QUERO MEU ACESSO AGORA POR R$9,90 💖
         </button>
       </div>
 
