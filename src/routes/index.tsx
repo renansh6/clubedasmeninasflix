@@ -1,8 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import familyOld from "@/assets/opt/pf-desenhos.webp.asset.json";
-import familyGibis from "@/assets/opt/pf-gibis.webp.asset.json";
-import familyLivros from "@/assets/opt/pf-livros.webp.asset.json";
 import { PosterCarousel } from "@/components/PosterCarousel";
 import { TestimonialWhatsappCarousel } from "@/components/TestimonialWhatsappCarousel";
 import { CARTOONS } from "@/data/cartoons";
@@ -67,26 +64,6 @@ const CARTOONS_ROW_3 = [
 const HERO_WEBP_640 = "/hero/banner-640.webp";
 const HERO_WEBP_1240 = "/hero/banner-1240.webp";
 
-const FAMILY_ITEMS = [
-  { title: "Desenhos nostálgicos", img: familyOld.url, w: 200, h: 112 },
-  { title: "Gibis digitais", img: familyGibis.url, w: 200, h: 125 },
-  { title: "Livros digitais", img: familyLivros.url, w: 200, h: 275 },
-];
-
-let familyPreloaded = false;
-function preloadFamily() {
-  if (familyPreloaded || typeof window === "undefined") return;
-  familyPreloaded = true;
-  FAMILY_ITEMS.forEach((it) => {
-    const img = new Image();
-    img.decoding = "async";
-    img.src = it.img;
-  });
-}
-
-
-
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -130,7 +107,6 @@ export const Route = createFileRoute("/")({
 });
 
 const CHECKOUT = "https://checkout.lowify.com.br/checkout.php?product_id=trhsz2";
-const CHECKOUT_VIP = "https://checkout.lowify.com.br/checkout.php?product_id=aZvoUl";
 
 // Fallback: mantém os parâmetros da URL da LP (ex.: UTMs) no link do checkout
 // caso o script de UTMs da UTMify ainda não tenha reescrito o href.
@@ -169,12 +145,6 @@ function openCheckout(e: React.MouseEvent<HTMLAnchorElement>, url: string) {
   window.setTimeout(() => window.location.assign(target), 400);
 }
 
-
-
-
-
-
-
 const ACCESS_BENEFITS = [
   { text: "Conteúdo em ", bold: "Full HD + 4K" },
   { text: "Tudo ", bold: "dublado em português" },
@@ -187,7 +157,6 @@ const ACCESS_BENEFITS = [
   { text: "Suporte premium 24/7" },
   { text: "Assista pelo celular, tablet, computador ou Smart TV" },
 ];
-
 
 const BUYERS = [
   "Amanda de São Paulo",
@@ -309,9 +278,9 @@ const FAQ = [
     a: (
       <>
         <p>
-          Calma, ele não se perdeu ❤️ O acesso é enviado <b className="text-ink">na hora da compra</b>,
-          para o e-mail <b className="text-ink">e</b> para o número de celular que você digitou no
-          momento do pagamento. Vamos conferir juntas:
+          Calma, ele não se perdeu ❤️ O acesso é enviado{" "}
+          <b className="text-ink">na hora da compra</b>, para o e-mail <b className="text-ink">e</b>{" "}
+          para o número de celular que você digitou no momento do pagamento. Vamos conferir juntas:
         </p>
         <ol className="mt-3 flex flex-col gap-3">
           <li className="flex items-start gap-2.5">
@@ -328,8 +297,9 @@ const FAQ = [
               2
             </span>
             <span>
-              Olhe nas abas <b className="text-ink">Promoções</b>, <b className="text-ink">Social</b>{" "}
-              e <b className="text-ink">Spam / Lixo eletrônico</b>. É muito comum ele cair numa
+              Olhe nas abas <b className="text-ink">Promoções</b>,{" "}
+              <b className="text-ink">Social</b> e{" "}
+              <b className="text-ink">Spam / Lixo eletrônico</b>. É muito comum ele cair numa
               dessas.
             </span>
           </li>
@@ -338,14 +308,14 @@ const FAQ = [
               3
             </span>
             <span>
-              Confira o <b className="text-ink">WhatsApp do número</b> que você preencheu na compra —
-              às vezes é um número antigo ou com um dígito trocado.
+              Confira o <b className="text-ink">WhatsApp do número</b> que você preencheu na compra
+              — às vezes é um número antigo ou com um dígito trocado.
             </span>
           </li>
         </ol>
         <div className="mt-3 rounded-xl border border-[#f0c98a] bg-[#fff6e6] p-3 text-[13px] leading-5">
-          <b className="text-[#a8681a]">Trocou um número ou uma letra sem querer?</b> Acontece muito,
-          e tem conserto — a gente reenvia pra você em minutos. É só chamar aqui embaixo.
+          <b className="text-[#a8681a]">Trocou um número ou uma letra sem querer?</b> Acontece
+          muito, e tem conserto — a gente reenvia pra você em minutos. É só chamar aqui embaixo.
         </div>
       </>
     ),
@@ -357,7 +327,8 @@ const FAQ = [
         <p>
           Sem problema nenhum, de verdade. Você tem{" "}
           <b className="text-ink">7 dias de garantia incondicional</b>: se sentir que não valeu a
-          pena, devolvemos <b className="text-ink">100% do valor</b>, sem perguntas e sem burocracia.
+          pena, devolvemos <b className="text-ink">100% do valor</b>, sem perguntas e sem
+          burocracia.
         </p>
         <p className="mt-3">
           Mas antes, me dá uma chance? 💗 Muita coisa que parece um problemão aqui é só um
@@ -372,21 +343,18 @@ function Divider({ className = "my-8" }: { className?: string }) {
   return <hr className={`${className} border-0 border-t border-dashed border-border`} />;
 }
 
-
 function OfferCard({
   tag,
   scarcity,
   title,
   cta,
   note,
-  onCta,
 }: {
   tag: string;
   scarcity?: string;
   title: string;
   cta: string;
   note: React.ReactNode;
-  onCta: (e: React.MouseEvent) => void;
 }) {
   return (
     <section className="card-soft px-5 py-7 text-center sm:px-7">
@@ -406,16 +374,9 @@ function OfferCard({
         <small className="align-super text-2xl font-bold">R$</small>9,90
       </div>
 
-      <button
-        type="button"
-        onClick={onCta}
-        onPointerEnter={preloadFamily}
-        onFocus={preloadFamily}
-        onTouchStart={preloadFamily}
-        className="cta-btn mt-4"
-      >
+      <a href={CHECKOUT} onClick={(e) => openCheckout(e, CHECKOUT)} className="cta-btn mt-4">
         {cta}
-      </button>
+      </a>
       <div className="mt-3 text-[12px] font-semibold leading-relaxed text-muted-foreground">
         {note}
       </div>
@@ -424,10 +385,7 @@ function OfferCard({
 }
 
 function Index() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
 
   // Ao voltar do checkout pelo botão "voltar", a página costuma ser restaurada do
   // bfcache com o estado congelado (modal aberto, handlers "presos"). Forçamos um
@@ -439,50 +397,6 @@ function Index() {
     window.addEventListener("pageshow", onPageShow);
     return () => window.removeEventListener("pageshow", onPageShow);
   }, []);
-
-  useEffect(() => {
-    if (!modalOpen) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const raf = requestAnimationFrame(() => {
-      if (overlayRef.current) overlayRef.current.scrollTop = 0;
-      if (modalRef.current) modalRef.current.scrollTop = 0;
-    });
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setModalOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      cancelAnimationFrame(raf);
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [modalOpen]);
-
-  // pré-carrega as miniaturas do pop-up só depois do conteúdo principal, em tempo ocioso
-  useEffect(() => {
-    const conn = (navigator as { connection?: { saveData?: boolean } }).connection;
-    if (conn?.saveData) return;
-    let idle = 0;
-    let timer = 0;
-    const start = () => {
-      const ric = (window as unknown as {
-        requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
-      }).requestIdleCallback;
-      if (ric) idle = ric(preloadFamily, { timeout: 4000 });
-      else timer = window.setTimeout(preloadFamily, 2500);
-    };
-    if (document.readyState === "complete") start();
-    else window.addEventListener("load", start, { once: true });
-    return () => {
-      window.removeEventListener("load", start);
-      window.clearTimeout(timer);
-      const cic = (window as unknown as { cancelIdleCallback?: (id: number) => void })
-        .cancelIdleCallback;
-      if (idle && cic) cic(idle);
-    };
-  }, []);
-
 
   useEffect(() => {
     let i = 0;
@@ -498,11 +412,6 @@ function Index() {
       window.clearInterval(interval);
     };
   }, []);
-
-  const handleCta = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setModalOpen(true);
-  };
 
   return (
     <main className="mx-auto w-full max-w-[620px] px-4 py-6">
@@ -535,7 +444,6 @@ function Index() {
           />
         </picture>
 
-
         <LiveViewerBadge />
       </section>
 
@@ -555,16 +463,13 @@ function Index() {
           <VslPlayer />
         </div>
 
-        <button
-          type="button"
-          onClick={handleCta}
-          onPointerEnter={preloadFamily}
-          onFocus={preloadFamily}
-          onTouchStart={preloadFamily}
-          className="cta-btn mt-4"
+        <a
+          href={CHECKOUT}
+          onClick={(e) => openCheckout(e, CHECKOUT)}
+          className="cta-btn mt-4 block text-center"
         >
           QUERO MEU ACESSO AGORA POR R$9,90 💖
-        </button>
+        </a>
       </div>
 
       <Divider />
@@ -602,7 +507,6 @@ function Index() {
           />
         </div>
       </section>
-
 
       <Divider />
 
@@ -711,7 +615,6 @@ function Index() {
         tag="Última chamada"
         title="Reviva a magia dos seus desenhos favoritos ainda hoje"
         cta="GARANTIR MEU ACESSO POR R$9,90 🎀"
-        onCta={handleCta}
         note={<>🔒 Compra 100% segura · 💗 7 dias de garantia incondicional</>}
       />
 
@@ -784,120 +687,6 @@ function Index() {
           </p>
         </div>
       </footer>
-
-
-      {/* MODAL UPSELL */}
-      {modalOpen && (
-        <div
-          ref={overlayRef}
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overscroll-contain bg-black/60 p-2"
-          style={{ WebkitOverflowScrolling: "touch" }}
-          onClick={() => setModalOpen(false)}
-        >
-          <div
-            ref={modalRef}
-            className="card-soft relative my-2 h-auto w-[calc(100vw-16px)] max-w-[400px] overflow-y-auto overscroll-contain border-2 border-primary p-3.5 text-center short:p-2.5"
-            style={{
-              maxHeight: "calc(100vh - 16px)",
-              maxBlockSize: "calc(100dvh - 16px)",
-              WebkitOverflowScrolling: "touch",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="sticky top-0 z-10 -mx-3.5 -mt-3.5 h-0 pr-1 text-right short:-mx-2.5 short:-mt-2.5">
-              <button
-                type="button"
-                onClick={() => setModalOpen(false)}
-                aria-label="Fechar"
-                className="h-11 w-11 text-2xl leading-none text-muted-foreground"
-              >
-                ×
-              </button>
-            </div>
-
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eab543] px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#5c3c00]">
-              🏠 Série exclusiva incluída
-            </span>
-
-            <h3 className="mt-3 text-[17px] font-extrabold leading-[1.3] text-ink short:mt-2.5 short:text-[15px]">
-              Espera! Por só <span className="text-primary">R$10 a mais</span>, você leva também a
-              série <span className="text-primary">Life in the Dreamhouse</span> 👇
-            </h3>
-
-            <p className="mt-2 text-[12.5px] leading-[1.35] text-muted-foreground">
-              Você já vai levar <b className="text-ink">todos os desenhos</b>. Falta a série que as
-              meninas mais pedem — e ela não entra na oferta de R$9,90.
-            </p>
-
-            <div className="relative mt-3.5 rounded-2xl border-2 border-[#f3b3d5] bg-[#fdeef6] p-3.5 pt-4.5 text-left">
-              <span className="absolute -top-2.5 right-3 rounded-full bg-primary px-2.5 py-1 text-[9.5px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-card)]">
-                Incluído
-              </span>
-              <div className="text-[13.5px] font-extrabold leading-snug text-primary">
-                🏠 Barbie Life in the Dreamhouse
-              </div>
-              <p className="mt-1 text-[12px] leading-[1.35] text-muted-foreground">
-                A série completa e dublada: Barbie, Ken, Skipper e Raquelle em episódios curtinhos,
-                perfeitos pra maratonar.
-              </p>
-            </div>
-
-            <div className="mt-3 rounded-2xl border border-[#f7d9e8] bg-card p-3.5 text-left">
-              <ul className="flex flex-col gap-2.5">
-                <li className="flex items-start gap-2.5 text-[12.5px] leading-[1.4] text-ink">
-                  <span className="shrink-0 text-[15px]">🧩</span>
-                  <span>
-                    <b className="text-primary">Atividades</b> — caça-palavras, 7 erros e ligue os
-                    pontos
-                  </span>
-                </li>
-                <li className="flex items-start gap-2.5 text-[12.5px] leading-[1.4] text-ink">
-                  <span className="shrink-0 text-[15px]">📱</span>
-                  <span>
-                    <b className="text-primary">Papéis de parede</b> da Barbie pro celular
-                  </span>
-                </li>
-                <li className="flex items-start gap-2.5 text-[12.5px] leading-[1.4] text-ink">
-                  <span className="shrink-0 text-[15px]">🎀</span>
-                  <span>
-                    <b className="text-primary">Carteirinha de Princesa</b> pra imprimir
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mt-3">
-              <div className="text-[12.5px] font-semibold text-muted-foreground">
-                De <s className="text-primary/70">R$29,90</s> por apenas +R$10
-              </div>
-              <div className="text-[26px] font-extrabold leading-none text-primary">
-                <small className="align-super text-sm font-bold">R$</small>19,90
-              </div>
-            </div>
-
-            <a
-              href={CHECKOUT_VIP}
-              onClick={(e) => openCheckout(e, CHECKOUT_VIP)}
-              className="cta-btn mt-3 min-h-[48px] w-full whitespace-normal text-[14px]"
-            >
-              SIM! QUERO A SÉRIE + O KIT 🏠
-              <span className="mt-0.5 block text-[12px] font-semibold normal-case opacity-90">
-                Levar tudo por R$19,90 →
-              </span>
-            </a>
-            <a
-              href={CHECKOUT}
-              onClick={(e) => openCheckout(e, CHECKOUT)}
-              className="mt-4 flex w-full items-center justify-center px-2 text-center text-[13.5px] font-semibold text-muted-foreground underline"
-            >
-              Não, quero só assistir por R$9,90.
-            </a>
-          </div>
-        </div>
-      )}
-
 
       {/* TOAST DE PROVA SOCIAL */}
       {toast && (
