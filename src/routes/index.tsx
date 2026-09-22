@@ -476,7 +476,7 @@ function Index() {
       {/* CARROSSEL DOS DESENHOS */}
       <section>
         <h2 className="text-center text-[20px] font-extrabold text-ink">
-          🎬 Olha tudo o que você vai encontrar no seu acesso
+          Veja os mais de 500 desenhos que você pode desbloquear e maratonar ainda hoje 💖
         </h2>
         <p className="mt-2 text-center text-[13.5px] font-medium text-muted-foreground">
           Arraste para o lado e veja tudo o que entra no seu acesso 💕
