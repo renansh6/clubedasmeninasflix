@@ -1,9 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import heroWebp640 from "@/assets/opt/banner-640.webp.asset.json";
-import heroWebp1240 from "@/assets/opt/banner-1240.webp.asset.json";
-import heroAvif640 from "@/assets/opt/banner-640.avif.asset.json";
-import heroAvif1240 from "@/assets/opt/banner-1240.avif.asset.json";
 import familyOld from "@/assets/opt/pf-desenhos.webp.asset.json";
 import familyGibis from "@/assets/opt/pf-gibis.webp.asset.json";
 import familyLivros from "@/assets/opt/pf-livros.webp.asset.json";
@@ -68,6 +64,9 @@ const CARTOONS_ROW_3 = [
   ...REMAINING_CARTOONS.filter((_, i) => i % 3 === 2),
 ];
 
+const HERO_WEBP_640 = "/hero/banner-640.webp";
+const HERO_WEBP_1240 = "/hero/banner-1240.webp";
+
 const FAMILY_ITEMS = [
   { title: "Desenhos nostálgicos", img: familyOld.url, w: 200, h: 112 },
   { title: "Gibis digitais", img: familyGibis.url, w: 200, h: 125 },
@@ -111,16 +110,16 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        type: "image/avif",
-        href: heroAvif640.url,
+        type: "image/webp",
+        href: HERO_WEBP_640,
         media: "(max-width: 700px)",
         fetchPriority: "high",
       },
       {
         rel: "preload",
         as: "image",
-        type: "image/avif",
-        href: heroAvif1240.url,
+        type: "image/webp",
+        href: HERO_WEBP_1240,
         media: "(min-width: 701px)",
         fetchPriority: "high",
       },
@@ -511,17 +510,12 @@ function Index() {
       <section className="-mx-4 -mt-6">
         <picture>
           <source
-            type="image/avif"
-            srcSet={`${heroAvif640.url} 640w, ${heroAvif1240.url} 1240w`}
-            sizes="(max-width: 600px) 100vw, 600px"
-          />
-          <source
             type="image/webp"
-            srcSet={`${heroWebp640.url} 640w, ${heroWebp1240.url} 1240w`}
+            srcSet={`${HERO_WEBP_640} 640w, ${HERO_WEBP_1240} 1240w`}
             sizes="(max-width: 600px) 100vw, 600px"
           />
           <img
-            src={heroWebp640.url}
+            src={HERO_WEBP_640}
             alt="A maior coleção de desenhos para meninas do Brasil"
             width={1200}
             height={800}
