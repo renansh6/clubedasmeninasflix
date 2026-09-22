@@ -467,7 +467,7 @@ function Index() {
           onClick={(e) => openCheckout(e, CHECKOUT)}
           className="cta-btn mt-4 block text-center"
         >
-          QUERO MEU ACESSO AGORA POR R$9,90 💖
+          QUERO MEU ACESSO AGORA POR R$9,90{" "}💖
         </a>
       </div>
 
