@@ -147,12 +147,11 @@ function openCheckout(e: React.MouseEvent<HTMLAnchorElement>, url: string) {
 
 const ACCESS_BENEFITS = [
   { text: "Conteúdo em ", bold: "Full HD + 4K" },
-  { text: "Tudo ", bold: "dublado em português" },
+  { text: "Conteudo dublado e legendado" },
   { text: "Sem anúncios" },
   { text: "Encontre facilmente cada desenho e episódio" },
-  { text: "Acesso imediato enviado diretamente pelo WhatsApp" },
+  { text: "Acesso imediato enviado no E-mail + WhatsApp" },
   { text: "Acesso 100% ", bold: "vitalício e sem mensalidades" },
-  { text: "Pagamento único, ", bold: "sem mensalidades" },
   { text: "Atualizações semanais do acervo sem custo adicional" },
   { text: "Suporte premium 24/7" },
   { text: "Assista pelo celular, tablet, computador ou Smart TV" },
