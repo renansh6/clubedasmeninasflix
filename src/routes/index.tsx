@@ -536,19 +536,6 @@ function Index() {
         </picture>
 
 
-        <h1 className="mt-5 text-center text-[17px] font-semibold leading-relaxed text-ink">
-          Agora você pode assistir aos{" "}
-          <b className="text-primary">desenhos mais amados de todos os tempos</b>, dublados em
-          português e em alta qualidade! 💖
-        </h1>
-
-        <p
-          className="mt-3 whitespace-nowrap text-center font-extrabold text-primary"
-          style={{ fontSize: "clamp(13px, 4vw, 20px)" }}
-        >
-          Mais de 500 desenhos para você maratonar!
-        </p>
-
         <LiveViewerBadge />
       </section>
 
