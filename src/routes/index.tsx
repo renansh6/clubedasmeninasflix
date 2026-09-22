@@ -514,9 +514,6 @@ function Index() {
       <h2 className="text-center text-[20px] font-extrabold text-ink">
         👑 Você recebe imediatamente tudo isso:
       </h2>
-      <p className="mt-2 text-center text-[13.5px] font-medium text-muted-foreground">
-        💌 Assim que o acesso for liberado, tudo isso é seu no WhatsApp:
-      </p>
 
       <div className="mx-auto mt-5 w-full max-w-[460px] px-4 sm:px-0">
         <section className="card-soft flex w-full flex-col p-5">

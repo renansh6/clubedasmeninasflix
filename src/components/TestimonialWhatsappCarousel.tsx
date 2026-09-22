@@ -7,17 +7,16 @@ export type WhatsappSlide = {
 
 type Props = {
   items: WhatsappSlide[];
-  /** segundos entre cada avanço automático */
-  intervalSeconds?: number;
 };
 
 /**
- * Carrossel de 1 print por vez (prints de WhatsApp), com autoplay, loop
- * infinito sem "salto" visível, arrasto por touch/mouse e dots. Usa o
- * truque clássico de clonar o primeiro/último slide nas pontas: ao chegar
- * no clone, troca a posição sem transição (imperceptível) e continua.
+ * Carrossel de 1 print por vez (prints de WhatsApp), estático — o lead passa
+ * os cards manualmente (arrasto por touch/mouse ou dots). Loop infinito sem
+ * "salto" visível: usa o truque clássico de clonar o primeiro/último slide
+ * nas pontas; ao chegar no clone, troca a posição sem transição
+ * (imperceptível) e continua.
  */
-export function TestimonialWhatsappCarousel({ items, intervalSeconds = 6.5 }: Props) {
+export function TestimonialWhatsappCarousel({ items }: Props) {
   const n = items.length;
   const loop: WhatsappSlide[] = n > 1 ? [items[n - 1]!, ...items, items[0]!] : items;
   const trackRef = useRef<HTMLDivElement>(null);
@@ -67,19 +66,14 @@ export function TestimonialWhatsappCarousel({ items, intervalSeconds = 6.5 }: Pr
     setDot(real);
   };
 
-  // autoplay + pausa no hover (dá tempo de ler) + pausa durante arrasto
+  // arrasto por touch/mouse (sem autoplay — o lead passa os cards manualmente)
   useEffect(() => {
     if (n <= 1) return;
-    let paused = false;
     let dragging = false;
     let startX = 0;
     let dragDx = 0;
     const el = wrapRef.current;
     if (!el) return;
-
-    const timer = window.setInterval(() => {
-      if (!paused && !dragging) goTo(1);
-    }, intervalSeconds * 1000);
 
     const getX = (e: TouchEvent | MouseEvent) =>
       "touches" in e ? (e.touches[0]?.clientX ?? 0) : e.clientX;
@@ -115,12 +109,6 @@ export function TestimonialWhatsappCarousel({ items, intervalSeconds = 6.5 }: Pr
       else if (dragDx >= threshold) goTo(-1);
       else applyTransform(true);
     };
-    const onEnter = () => {
-      paused = true;
-    };
-    const onLeave = () => {
-      paused = false;
-    };
 
     el.addEventListener("touchstart", onDown, { passive: true });
     el.addEventListener("touchmove", onMove, { passive: true });
@@ -128,22 +116,17 @@ export function TestimonialWhatsappCarousel({ items, intervalSeconds = 6.5 }: Pr
     el.addEventListener("mousedown", onDown);
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", onUp);
-    el.addEventListener("mouseenter", onEnter);
-    el.addEventListener("mouseleave", onLeave);
 
     return () => {
-      window.clearInterval(timer);
       el.removeEventListener("touchstart", onDown);
       el.removeEventListener("touchmove", onMove);
       el.removeEventListener("touchend", onUp);
       el.removeEventListener("mousedown", onDown);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseup", onUp);
-      el.removeEventListener("mouseenter", onEnter);
-      el.removeEventListener("mouseleave", onLeave);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [n, intervalSeconds]);
+  }, [n]);
 
   const goToDot = (i: number) => {
     if (animating.current || i === dot) return;
