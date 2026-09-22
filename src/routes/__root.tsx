@@ -109,17 +109,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     // Rastreio. Instalacao "limpa" (sem ofuscacao) pra qualquer verificador
     // conseguir detectar o Pixel Utmify na pagina — o Teste de Funil da UTMify
     // faz uma checagem estatica e nao enxergava os blocos ofuscados.
-    // Ordem: Script de UTMs (UTMify) -> Meta Pixel -> Pixel da UTMify.
+    // Ordem: Script de UTMs (UTMify) -> Pixel da UTMify.
     //
-    // Nota sobre ordem: o TanStack Router renderiza todo <script src> antes
-    // dos <script> inline, então na prática o pixel.js chega antes do inline
-    // que define window.pixelId. Isso é inofensivo aqui: o pixel.js (Tracker
-    // Meta v1.6.1) só chama startListening() no evento "load" da página (ou
-    // de imediato se document.readyState já for "complete"), e só ali lê
-    // window.pixelId via getter — muito depois do parser já ter executado o
-    // inline que define o valor. Mantido como <script src> estático (em vez
-    // de injeção dinâmica) pra bater exatamente com o snippet oficial da
-    // UTMify, que é o que o Teste de Funil espera encontrar na página.
+    // NÃO adicionar o snippet manual do Meta Pixel aqui: o pixel.js da UTMify
+    // já lê os Meta Pixel IDs vinculados ao pixelId (6a9a5350c04b7eb60ddd06dc)
+    // no painel da UTMify e chama fbq('init', ...) + PageView sozinho. Colar o
+    // snippet do Meta por cima causa init duplicado — confirmado em produção
+    // pelo warning "[Meta Pixel] - Duplicate Pixel ID: 1098368853130217" no
+    // console e PageView sendo contado 2x.
     scripts: [
       // Script de UTMs (UTMify) — instalação padrão gerada pelo painel, com os
       // atributos data-utmify-prevent-*: assim o utms.js PRESERVA um sck/xcod
@@ -131,10 +128,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "data-utmify-prevent-subids": "",
         async: true,
         defer: true,
-      },
-      // Meta Pixel (Facebook) - pixel id 1098368853130217
-      {
-        children: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1098368853130217');fbq('track','PageView');`,
       },
       // Pixel da UTMify - define o pixelId antes de carregar o pixel.js
       { children: `window.pixelId = "6a9a5350c04b7eb60ddd06dc";` },
