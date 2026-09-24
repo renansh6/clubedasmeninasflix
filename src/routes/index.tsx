@@ -106,7 +106,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CHECKOUT = "https://checkout.lowify.com.br/checkout.php?product_id=trhsz2";
+const CHECKOUT = "https://pay.lowify.com.br/checkout?product_id=trhsz2";
 
 // Fallback: mantém os parâmetros da URL da LP (ex.: UTMs) no link do checkout
 // caso o script de UTMs da UTMify ainda não tenha reescrito o href.
