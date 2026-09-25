@@ -553,6 +553,9 @@ function Index() {
       <h2 className="text-center text-[20px] font-extrabold text-ink">
         💬 Acompanhe o feedback de quem já garantiu
       </h2>
+      <p className="mt-2 text-center text-[13.5px] font-medium text-muted-foreground">
+        🎥 Vídeo enviado pela seguidora Rayssa assistindo o clube em sua TV
+      </p>
       <div className="mt-5">
         <TestimonialWhatsappCarousel items={WHATSAPP_TESTIMONIALS} />
       </div>
