@@ -81,6 +81,19 @@ export function TestimonialWhatsappCarousel({ items }: Props) {
     el.style.transform = `translate3d(${-index.current * 100}%,0,0)`;
   };
 
+  // Reconduz index.current pro intervalo real [1, n] (fora dos clones nas
+  // pontas). Cobre não só os clones (index 0 / loop.length-1), mas qualquer
+  // valor fora disso: arrastos rápidos em sequência cancelam a transição
+  // anterior em onDown antes do "transitionend" corrigir a posição, e cada
+  // cancelamento permite goTo incrementar index.current de novo — sem essa
+  // normalização ele soma indefinidamente e o track acaba mostrando um
+  // trecho vazio, além do último slide (tela "sumindo").
+  const normalizeIndex = () => {
+    if (n <= 1) return;
+    const real = (((index.current - 1) % n) + n) % n;
+    index.current = real + 1;
+  };
+
   useEffect(() => {
     // posiciona no slide real (índice 1, por causa do clone) sem transição
     applyTransform(false);
@@ -94,11 +107,8 @@ export function TestimonialWhatsappCarousel({ items }: Props) {
 
     const onEnd = () => {
       animating.current = false;
-      if (index.current === loop.length - 1) {
-        index.current = 1;
-        applyTransform(false);
-      } else if (index.current === 0) {
-        index.current = n;
+      if (index.current >= loop.length - 1 || index.current <= 0) {
+        normalizeIndex();
         applyTransform(false);
       }
     };
@@ -135,6 +145,7 @@ export function TestimonialWhatsappCarousel({ items }: Props) {
       // limpa antes de começar a arrastar, senão o carrossel pode ficar
       // travado entre dois prints depois do gesto.
       animating.current = false;
+      normalizeIndex();
       applyTransform(false);
       startX = getX(e);
       dragDx = 0;
