@@ -3,11 +3,60 @@ import { useEffect, useRef, useState } from "react";
 export type WhatsappSlide = {
   src: string;
   alt: string;
+  /** Poster do vídeo (obrigatório quando o slide é um vídeo). */
+  poster?: string;
+  type?: "image" | "video";
 };
 
 type Props = {
   items: WhatsappSlide[];
 };
+
+/**
+ * Player do depoimento em vídeo: mesmo padrão da VSL — mostra a capa com
+ * botão de play; começa parado e sem som, e ao tocar dá play com áudio.
+ */
+function TestimonialVideoSlide({ slide }: { slide: WhatsappSlide }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [started, setStarted] = useState(false);
+
+  const start = () => {
+    const video = ref.current;
+    if (!video) return;
+    video.muted = false;
+    setStarted(true);
+    const p = video.play();
+    if (p) p.catch(() => {});
+  };
+
+  return (
+    <div className="relative aspect-[9/16] w-full shrink-0 bg-black">
+      <video
+        ref={ref}
+        src={slide.src}
+        poster={slide.poster}
+        playsInline
+        preload="metadata"
+        controls={started}
+        className="absolute inset-0 h-full w-full object-contain"
+      />
+      {!started && (
+        <button
+          type="button"
+          onClick={start}
+          aria-label="Assistir ao depoimento em vídeo"
+          className="absolute inset-0 z-10 flex h-full w-full cursor-pointer items-center justify-center border-0 bg-black/10 p-0"
+        >
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-[var(--shadow-cta)]">
+            <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 fill-primary-foreground">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </button>
+      )}
+    </div>
+  );
+}
 
 /**
  * Carrossel de 1 print por vez (prints de WhatsApp), estático — o lead passa
@@ -149,17 +198,21 @@ export function TestimonialWhatsappCarousel({ items }: Props) {
             transform: `translate3d(${-index.current * 100}%,0,0)`,
           }}
         >
-          {loop.map((s, i) => (
-            <img
-              key={`${s.src}-${i}`}
-              src={s.src}
-              alt={s.alt}
-              loading={i <= 2 ? "eager" : "lazy"}
-              decoding="async"
-              draggable={false}
-              className="h-auto w-full shrink-0 object-contain"
-            />
-          ))}
+          {loop.map((s, i) =>
+            s.type === "video" ? (
+              <TestimonialVideoSlide key={`${s.src}-${i}`} slide={s} />
+            ) : (
+              <img
+                key={`${s.src}-${i}`}
+                src={s.src}
+                alt={s.alt}
+                loading={i <= 2 ? "eager" : "lazy"}
+                decoding="async"
+                draggable={false}
+                className="h-auto w-full shrink-0 object-contain"
+              />
+            ),
+          )}
         </div>
       </div>
 

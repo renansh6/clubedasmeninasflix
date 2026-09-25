@@ -4,10 +4,18 @@ import { PosterCarousel } from "@/components/PosterCarousel";
 import { TestimonialWhatsappCarousel } from "@/components/TestimonialWhatsappCarousel";
 import { CARTOONS } from "@/data/cartoons";
 
-const WHATSAPP_TESTIMONIALS = Array.from({ length: 7 }, (_, i) => ({
-  src: `/depoimentos/whatsapp-${i + 1}.webp`,
-  alt: `Print de conversa no WhatsApp com depoimento de uma cliente ${i + 1}`,
-}));
+const WHATSAPP_TESTIMONIALS = [
+  {
+    src: "/depoimentos/video-1.mp4",
+    poster: "/depoimentos/video-1-poster.webp",
+    type: "video" as const,
+    alt: "Vídeo de depoimento de uma cliente assistindo aos desenhos pelo Clube",
+  },
+  ...Array.from({ length: 7 }, (_, i) => ({
+    src: `/depoimentos/whatsapp-${i + 1}.webp`,
+    alt: `Print de conversa no WhatsApp com depoimento de uma cliente ${i + 1}`,
+  })),
+];
 
 // Ordem fixa dos primeiros cards de cada fileira do carrossel de 3 linhas
 // (sempre os mesmos, na mesma ordem, já no primeiro carregamento da página).
